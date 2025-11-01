@@ -1,0 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/22 03:01:25 by marvin            #+#    #+#             */
+/*   Updated: 2025/10/22 03:01:25 by marvin           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+class Fixed{
+
+private:
+    int rawValue;
+    static const int _fractionalBits = 8;
+
+public :
+	Fixed();
+	Fixed(const Fixed &a);
+	Fixed &operator=(const Fixed &a);
+	~Fixed();
+
+	int getRawBits( void ) const;
+	void setRawBits( int const raw );
+
+};

@@ -1,0 +1,51 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/10/22 17:30:48 by marvin            #+#    #+#              #
+#    Updated: 2025/10/22 17:30:48 by marvin           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = a.out
+
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+
+SRCS = tests.cpp Account.cpp
+HEADERS = Account.hpp
+
+OBJDIR = obj
+OBJS = $(SRCS:%.cpp=$(OBJDIR)/%.o)
+
+GREEN = \033[0;32m
+RED = \033[0;31m
+RESET = \033[0m
+
+all: $(NAME)
+
+$(OBJDIR):
+	@mkdir -p $(OBJDIR)
+
+$(NAME): $(OBJDIR) $(OBJS)
+	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+	@echo "$(GREEN)✓ $(NAME) compiled successfully!$(RESET)"
+
+$(OBJDIR)/%.o: %.cpp $(HEADERS) | $(OBJDIR)
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
+	@echo "$(GREEN)✓ Compiled: $<$(RESET)"
+
+clean:
+	@rm -rf $(OBJDIR)
+	@echo "$(RED)✗ Object files removed$(RESET)"
+
+fclean: clean
+	@rm -f $(NAME)
+	@echo "$(RED)✗ $(NAME) removed$(RESET)"
+
+re: fclean all
+
+.PHONY: all clean fclean re
