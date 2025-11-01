@@ -11,14 +11,12 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include <iostream>
 #include <iomanip>
 #include <cstdlib>
-#include <string>
 
 PhoneBook::PhoneBook()
 {
-    nextIndex = 0;
+    index = 0;
     contactCount = 0;
 }
 
@@ -142,15 +140,15 @@ void PhoneBook::addContact()
     if (darkestSecret.empty())
         return;
     
-    contacts[nextIndex].setFirstName(firstName);
-    contacts[nextIndex].setLastName(lastName);
-    contacts[nextIndex].setNickname(nickname);
-    contacts[nextIndex].setPhoneNumber(phoneNumber);
-    contacts[nextIndex].setDarkestSecret(darkestSecret);
+    contacts[index].setFirstName(firstName);
+    contacts[index].setLastName(lastName);
+    contacts[index].setNickname(nickname);
+    contacts[index].setPhoneNumber(phoneNumber);
+    contacts[index].setDarkestSecret(darkestSecret);
     
     if (contactCount < 8)
         contactCount++;
     
-    nextIndex = (nextIndex + 1) % 8;
+    index = (index + 1) % 8;
     std::cout << "Contact added successfully!" << std::endl;
 }

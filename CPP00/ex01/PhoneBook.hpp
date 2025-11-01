@@ -14,7 +14,7 @@
 #define PHONEBOOK_HPP
 
 #include "Contact.hpp"
-#include <string>
+#include <iostream>
 
 bool isEmptyField(const std::string& str);
 std::string change_name(std::string str);
@@ -24,7 +24,7 @@ class PhoneBook {
 
 private:
     Contact contacts[8];
-    int nextIndex;
+    int index;
     int contactCount;
     
     void displayContactList();
