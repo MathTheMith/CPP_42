@@ -31,10 +31,7 @@ Fixed &Fixed::operator=(const Fixed &a)
     std::cout << "Copy assignment operator called" << std::endl;
 
     if (this != &a)
-    {
         this->rawValue = a.rawValue;
-    }
-
     return *this;
 }
 
@@ -47,7 +44,6 @@ int Fixed::getRawBits(void) const {
     std::cout << "getRawBits member function called" << std::endl;
     return rawValue;
 }
-
 
 void Fixed::setRawBits( int const raw ){
 	rawValue = raw << _fractionalBits;

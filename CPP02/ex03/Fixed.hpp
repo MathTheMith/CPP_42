@@ -12,13 +12,6 @@
 
 #include <ostream>
 
-class Point{
-
-private:
-	Fixed const a;
-	Fixed const b;
-};
-
 class Fixed{
 private:
     int rawValue;
@@ -58,4 +51,11 @@ public :
 
 	int toInt( void ) const;
 	float toFloat( void ) const;
+};
+
+class Point{
+
+private:
+	Fixed const a;
+	Fixed const b;
 };
