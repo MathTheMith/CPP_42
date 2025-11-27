@@ -19,8 +19,14 @@ int main(int ac, char **av)
 {
 	if (ac != 4)
 		return (0);
-	std::string s1(av[2]);
-	std::string s2(av[3]);
+	std::string s1 = av[2];
+	std::string s2 = av[3];
+
+	if (s1.empty())
+	{
+		std::cout << "First argument not found" << std::endl;
+		return (1);
+	}
 	std::string output_filename = std::string(av[1]) + ".replace";
 	std::ifstream file(av[1]);
 	if (!file.is_open()) {
@@ -31,7 +37,10 @@ int main(int ac, char **av)
 	std::string final_line;
 	std::ofstream output(output_filename.c_str());
 	if (!output.is_open())
+	{
     	std::cout << "Error: impossible to create the file !" << std::endl;
+		return 1;
+	}
 	while (std::getline(file, line))
 	{
 	    std::size_t pos = 0;
