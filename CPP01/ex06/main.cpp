@@ -17,8 +17,8 @@ int main(int ac, char **av)
 	Harl harl;
 
   if (ac == 2)
-  {
     harl.complain(av[1]);
-  }
+  else
+    std::cout << "ONE argument is required!" << std::endl;
   return 0;
 }

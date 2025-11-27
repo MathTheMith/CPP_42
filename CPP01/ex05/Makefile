@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = a.out
+NAME = harl
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -19,7 +19,6 @@ SRCS = main.cpp Harl.cpp
 HEADERS = Harl.hpp
 OBJDIR = obj
 OBJS = $(SRCS:%.cpp=$(OBJDIR)/%.o)
-DEPS = $(OBJS:.o=.d)
 
 GREEN = \033[0;32m
 RED = \033[0;31m

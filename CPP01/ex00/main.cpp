@@ -15,15 +15,12 @@
 
 int main(void)
 {
-    std::cout << "=== Test HEAP ===" << std::endl;
     Zombie* heapZombie = newZombie("HeapZombie");
     heapZombie->announce();
     delete heapZombie;
     
     std::cout << std::endl;
-    std::cout << "=== Test STACK ===" << std::endl;
     randomChump("StackZombie");
-    
     std::cout << std::endl;
     
     return 0;

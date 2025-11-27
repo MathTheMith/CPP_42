@@ -13,9 +13,8 @@
 #include "Zombie.hpp"
 #include <iostream>
 
-Zombie::Zombie(std::string zombieName) {
-    name = zombieName;
-}
+Zombie::Zombie(std::string zombieName)
+    : name(zombieName) {}
 
 Zombie::~Zombie(void) {
     std::cout << name << " has been destroyed" << std::endl;

@@ -24,11 +24,9 @@ private:
     Weapon *weapon;
 
 public:
-    HumanB(std::string new_name) : name(new_name), weapon(NULL) {}
+    HumanB(std::string new_name);
 
-    void setWeapon(Weapon& newWeapon) {
-        weapon = &newWeapon;
-    }
+    void setWeapon(Weapon& newWeapon);
 
     void attack();
 };

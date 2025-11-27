@@ -19,10 +19,10 @@ Harl::Harl()
     actions[2] = &Harl::warning;
     actions[3] = &Harl::error;
     
-    levels[0] = "DEBUG";
-    levels[1] = "INFO";
-    levels[2] = "WARNING";
-    levels[3] = "ERROR";
+    complain_type[0] = "DEBUG";
+    complain_type[1] = "INFO";
+    complain_type[2] = "WARNING";
+    complain_type[3] = "ERROR";
 }
 
 void Harl::debug(void)
@@ -49,7 +49,7 @@ void Harl::complain(std::string level)
 {
 	int i = 0;
 
-	while (i < 4 && levels[i] != level)
+	while (i < 4 && complain_type[i] != level)
 		i++;
 
 	switch (i)
@@ -58,7 +58,7 @@ void Harl::complain(std::string level)
 			std::cout << "[ DEBUG ]" << std::endl;
 			(this->*actions[0])();
 			std::cout << std::endl;
-      __attribute__((fallthrough));
+    __attribute__((fallthrough));
 		case 1:
 			std::cout << "[ INFO ]" << std::endl;
 			(this->*actions[1])();

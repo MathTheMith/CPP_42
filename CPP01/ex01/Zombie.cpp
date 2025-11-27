@@ -13,9 +13,8 @@
 #include "Zombie.hpp"
 #include <iostream>
 
-Zombie::Zombie() {
-    name = "";
-}
+Zombie::Zombie()
+    : name("") {}
 
 Zombie::Zombie(std::string zombieName) {
     name = zombieName;

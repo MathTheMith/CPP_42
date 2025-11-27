@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = a.out
+NAME = replace
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98

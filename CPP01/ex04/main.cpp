@@ -10,9 +10,9 @@ int main(int ac, char **av)
 		std::string s1 = av[2];
 		std::string s2 = av[3];
 		std::string output_filename = std::string(av[1]) + ".replace";
-		std::ifstream fichier(av[1]);
-	
-		if (!fichier.is_open()) {
+		std::ifstream file(av[1]);
+
+		if (!file.is_open()) {
 			std::cerr << "Error: impossible to open the file." << std::endl;
 			return 1;
 		}
@@ -20,8 +20,8 @@ int main(int ac, char **av)
 		std::string final_line;
 		std::ofstream output(output_filename.c_str());
 		if (!output.is_open())
-        	std::cerr << "Impossible de créer le fichier !" << std::endl;
-		while (std::getline(fichier, line))
+        	std::cerr << "Error: impossible to create the file !" << std::endl;
+		while (std::getline(file, line))
 		{
 		    std::size_t pos = 0;
 		    final_line.clear();
@@ -34,7 +34,7 @@ int main(int ac, char **av)
 		    final_line += line;
 		    output << final_line << "\n";
 		}
-		fichier.close();
+		file.close();
 		return 0;
 	}
 	return (1);

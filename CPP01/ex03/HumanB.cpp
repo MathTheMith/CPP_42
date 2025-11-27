@@ -12,6 +12,13 @@
 
 #include "HumanB.hpp"
 
+HumanB::HumanB(std::string new_name)
+    : name(new_name), weapon(NULL) {}
+
+void HumanB::setWeapon(Weapon& newWeapon) {
+    weapon = &newWeapon;
+}
+
 void HumanB::attack(void)
  {
     if (weapon)
