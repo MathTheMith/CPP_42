@@ -23,13 +23,13 @@ std::ostream &operator<<(std::ostream &os, const Fixed &f) {
 Fixed::Fixed()
 {
 	std::cout << "Default constructor called" << std::endl;
-	rawValue = 0;
+	_rawValue = 0;
 }
 
 Fixed::Fixed(const Fixed &a)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	rawValue = a.rawValue;
+	_rawValue = a._rawValue;
 }
 
 Fixed &Fixed::operator=(const Fixed &a)
@@ -38,7 +38,7 @@ Fixed &Fixed::operator=(const Fixed &a)
 
     if (this != &a)
     {
-        this->rawValue = a.rawValue;
+        this->_rawValue = a._rawValue;
     }
 
     return *this;
@@ -50,19 +50,19 @@ Fixed::~Fixed()
 }
 
 Fixed::Fixed(float const f) {
-    rawValue = roundf(f * (1 << _fractionalBits));
+    _rawValue = roundf(f * (1 << _fractionalBits));
 }
 
 int Fixed::toInt( void ) const
 {
-   return (rawValue >> _fractionalBits);
+   return (_rawValue >> _fractionalBits);
 }
 
 float Fixed::toFloat(void) const {
-    return static_cast<float>(rawValue) / (1 << _fractionalBits);
+    return static_cast<float>(_rawValue) / (1 << _fractionalBits);
 }
 
 Fixed::Fixed( int const raw ){
-	rawValue = raw << _fractionalBits;
+	_rawValue = raw << _fractionalBits;
 }
 
