@@ -15,6 +15,8 @@
 #include <cmath>
 #include "Fixed.hpp"
 
+const int Fixed::_fractionalBits = 8;
+
 std::ostream &operator<<(std::ostream &os, const Fixed &f) {
     os << f.toFloat();
     return os;
@@ -127,8 +129,6 @@ const Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
         return a;
     return b;
 }
-
-
 
 Fixed::Fixed()
 {

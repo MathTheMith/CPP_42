@@ -15,6 +15,8 @@
 #include <cmath>
 #include "Fixed.hpp"
 
+const int Fixed::_fractionalBits = 8;
+
 std::ostream &operator<<(std::ostream &os, const Fixed &f) {
     os << f.toFloat();
     return os;
@@ -37,10 +39,7 @@ Fixed &Fixed::operator=(const Fixed &a)
     std::cout << "Copy assignment operator called" << std::endl;
 
     if (this != &a)
-    {
-        this->_rawValue = a._rawValue;
-    }
-
+        _rawValue = a._rawValue;
     return *this;
 }
 

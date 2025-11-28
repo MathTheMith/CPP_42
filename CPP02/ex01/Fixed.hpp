@@ -15,12 +15,12 @@
 class Fixed{
 private:
     int _rawValue;
-    static const int _fractionalBits = 8;
+    static const int _fractionalBits;
 
 public :	
 	friend std::ostream &operator<<(std::ostream &os, const Fixed &f);
 	Fixed();
-	Fixed( int const raw );
+	Fixed(int const raw );
 	Fixed(float const f);
 	Fixed(const Fixed &a);
 	Fixed &operator=(const Fixed &a);

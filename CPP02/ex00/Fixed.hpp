@@ -14,7 +14,7 @@ class Fixed{
 
 private:
     int _rawValue;
-    static const int _fractionalBits = 8;
+    static const int _fractionalBits;
 
 public :
 	Fixed();

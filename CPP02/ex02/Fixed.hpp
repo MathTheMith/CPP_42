@@ -15,11 +15,11 @@
 class Fixed{
 private:
     int _rawValue;
-    static const int _fractionalBits = 8;
+    static const int _fractionalBits;
 
 public :	
 	Fixed();
-	Fixed( int const raw );
+	Fixed(int const raw );
 	Fixed(float const f);
 	Fixed(const Fixed &a);
 	Fixed &operator=(const Fixed &a);
@@ -49,6 +49,6 @@ public :
 	static Fixed &min(Fixed &a, Fixed &b);
 	static const Fixed &min(const Fixed &a, const Fixed &b);
 
-	int toInt( void ) const;
-	float toFloat( void ) const;
+	int toInt(void) const;
+	float toFloat(void) const;
 };
