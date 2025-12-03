@@ -14,7 +14,7 @@
 
 int main(void)
 {
-    ClapTrap him("Jhon");
+    ClapTrap him("test");
 
     him.attack("enemy");
     him.takeDamage(5);

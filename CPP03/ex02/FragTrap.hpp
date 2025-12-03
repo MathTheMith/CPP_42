@@ -19,13 +19,13 @@
 
 class FragTrap : public ClapTrap{
 
-public:
-	FragTrap();
-	FragTrap(std::string name);
-	FragTrap &operator=(const FragTrap &a);
+	public:
+		FragTrap();
+		FragTrap(std::string name);
+		FragTrap &operator=(const FragTrap &a);
 
-	~FragTrap();
-	void highFivesGuys(void);
+		~FragTrap();
+		void highFivesGuys(void);
 };
 
 #endif
