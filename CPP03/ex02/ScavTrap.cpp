@@ -15,18 +15,29 @@
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
-    hit_point = 100;
-    energy_point = 50;
-    attack_damage = 20;
+    _hit_points = 100;
+    _energy_points = 50;
+    _attack_damage = 20;
     std::cout << "ScavTrap constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-    hit_point = 100;
-    energy_point = 50;
-    attack_damage = 20;
+    _hit_points = 100;
+    _energy_points = 50;
+    _attack_damage = 20;
     std::cout << "ScavTrap constructor called" << std::endl;
+}
+
+ScavTrap &ScavTrap::operator=(const ScavTrap &a)
+{
+    if (this != &a)
+    {
+        this->_attack_damage = a._attack_damage;
+        this->_energy_points = a._energy_points;
+        this->_hit_points = a._hit_points;
+    }
+    return *this;
 }
 
 ScavTrap::~ScavTrap()

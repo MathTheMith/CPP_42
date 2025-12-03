@@ -15,18 +15,29 @@
 
 FragTrap::FragTrap() : ClapTrap()
 {
-    hit_point = 100;
-    energy_point = 100;
-    attack_damage = 30;
+    _hit_points = 100;
+    _energy_points = 100;
+    _attack_damage = 30;
     std::cout << "FragTrap constructor called" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-    hit_point = 100;
-    energy_point = 100;
-    attack_damage = 30;
+    _hit_points = 100;
+    _energy_points = 100;
+    _attack_damage = 30;
     std::cout << "FragTrap constructor called" << std::endl;
+}
+
+FragTrap &FragTrap::operator=(const FragTrap &a)
+{
+    if (this != &a)
+    {
+        this->_attack_damage = a._attack_damage;
+        this->_energy_points = a._energy_points;
+        this->_hit_points = a._hit_points;
+    }
+    return *this;
 }
 
 FragTrap::~FragTrap()

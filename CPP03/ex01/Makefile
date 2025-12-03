@@ -10,12 +10,17 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = a.out
-
+NAME = ClapTrap
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
+SRCS = main.cpp \
+       ClapTrap.cpp \
+       ClapTrapActions.cpp \
+	   ScavTrap.cpp
+
+HEADERS = ClapTrap.hpp ScavTrap.hpp
+
 OBJDIR = obj
 OBJS = $(SRCS:%.cpp=$(OBJDIR)/%.o)
 
@@ -32,7 +37,7 @@ $(NAME): $(OBJDIR) $(OBJS)
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)✓ $(NAME) compiled successfully!$(RESET)"
 
-$(OBJDIR)/%.o: %.cpp | $(OBJDIR)
+$(OBJDIR)/%.o: %.cpp $(HEADERS) | $(OBJDIR)
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 	@echo "$(GREEN)✓ Compiled: $<$(RESET)"
 

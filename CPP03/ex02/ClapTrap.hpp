@@ -19,14 +19,16 @@
 class ClapTrap{
 
 protected :
-	std::string name;
-	int hit_point;
-	int energy_point;
-	int attack_damage;
+	std::string _name;
+	int _hit_points;
+	int _energy_points;
+	int _attack_damage;
 
 public :
 	ClapTrap();
 	ClapTrap(std::string name);
+	ClapTrap &operator=(const ClapTrap &a);
+
 	~ClapTrap();
 
 	void attack(const std::string& target);

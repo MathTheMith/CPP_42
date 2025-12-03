@@ -17,16 +17,16 @@
 int main()
 {
     ScavTrap st("Bob");
-    FragTrap t("Jack");
+    FragTrap ft("Jack");
     // ClapTrap p("Jhon");
     st.attack("Ennemy");
     st.takeDamage(30);
     st.beRepaired(20);
     st.guardGate();
-    t.attack("Ennemy");
-    t.takeDamage(30);
-    t.beRepaired(20);
-    t.highFivesGuys();
+    ft.attack("Ennemy");
+    ft.takeDamage(30);
+    ft.beRepaired(20);
+    ft.highFivesGuys();
     // p.attack("Ennemy");
     // p.takeDamage(30);
     // p.beRepaired(20);
