@@ -10,22 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ostream>
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
-class Fixed{
+#include <iostream>
+
+class Fixed {
+
 private:
     int _rawValue;
     static const int _fractionalBits;
 
-public :	
-	friend std::ostream &operator<<(std::ostream &os, const Fixed &f);
-	Fixed();
-	Fixed(int const raw );
-	Fixed(float const f);
-	Fixed(const Fixed &a);
-	Fixed &operator=(const Fixed &a);
-	~Fixed();
+public:
+    Fixed();
+    Fixed(const int raw);
+    Fixed(const float f);
+    Fixed(const Fixed &a);
 
-	int toInt( void ) const;
-	float toFloat( void ) const;
+    ~Fixed();
+
+    Fixed &operator=(const Fixed &a);
+
+    int toInt(void) const;
+    float toFloat(void) const;
+
+    friend std::ostream &operator<<(std::ostream &os, const Fixed &f);
 };
+
+#endif

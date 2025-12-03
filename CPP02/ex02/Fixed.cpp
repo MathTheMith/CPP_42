@@ -30,7 +30,6 @@ bool Fixed::operator<(const Fixed &other) const {
     return this->_rawValue < other._rawValue;
 }
 
-
 bool Fixed::operator>=(const Fixed &other) const {
     return this->_rawValue >= other._rawValue;
 }
@@ -85,11 +84,11 @@ Fixed &Fixed::operator++()
     return *this;
 }
 
-Fixed &Fixed::operator++(int)
+Fixed Fixed::operator++(int)
 {
     Fixed temp = *this;
     _rawValue++;
-    return *this;
+    return temp;
 }
 
 Fixed &Fixed::operator--()
@@ -98,11 +97,11 @@ Fixed &Fixed::operator--()
     return *this;
 }
 
-Fixed &Fixed::operator--(int)
+Fixed Fixed::operator--(int)
 {
     Fixed temp = *this;
     _rawValue--;
-    return *this;
+    return temp;
 }
 
 Fixed &Fixed::min(Fixed &a, Fixed &b) {
@@ -131,32 +130,33 @@ const Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
 
 Fixed::Fixed()
 {
-	// std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default constructor called" << std::endl;
 	_rawValue = 0;
 }
 
 Fixed::Fixed(const Fixed &a)
 {
-	// std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Copy constructor called" << std::endl;
 	_rawValue = a._rawValue;
 }
 
 Fixed &Fixed::operator=(const Fixed &a)
 {
-    // std::cout << "Copy assignment operator called" << std::endl;
+    std::cout << "Copy assignment operator called" << std::endl;
 
     if (this != &a)
         this->_rawValue = a._rawValue;
-
     return *this;
 }
 
 Fixed::~Fixed()
 {
-	// std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed(float const f) {
+Fixed::Fixed(float const f)
+{
+    std::cout << "Float constructor called" << std::endl;
     _rawValue = roundf(f * (1 << _fractionalBits));
 }
 
@@ -165,11 +165,14 @@ int Fixed::toInt( void ) const
    return (_rawValue >> _fractionalBits);
 }
 
-float Fixed::toFloat(void) const {
+float Fixed::toFloat(void) const
+{
     return static_cast<float>(_rawValue) / (1 << _fractionalBits);
 }
 
-Fixed::Fixed( int const raw ){
+Fixed::Fixed( int const raw )
+{
+    std::cout << "Int constructor called" << std::endl;
 	_rawValue = raw << _fractionalBits;
 }
 
