@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 14:44:43 by marvin            #+#    #+#             */
-/*   Updated: 2025/10/22 14:44:43 by marvin           ###   ########.fr       */
+/*   Created: 2025/10/22 14:36:56 by marvin            #+#    #+#             */
+/*   Updated: 2025/10/22 14:36:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
-
 #include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
 
-class Dog : public Animal{
-
-public:
-	Dog();
-	Dog &operator=(const Dog *other);
-	~Dog();
-	void makeSound() const;
-
-};
-
-#endif
+int main()
+{
+	Animal* array[6];
+	int i = 0;
+	while (i < 6)
+	{
+		if (i < 3)
+			array[i] = new Dog();
+		else
+			array[i] = new Cat();
+		i++; 
+	}
+	i = 0;
+	while (i < 6)
+	{
+		delete array[i];
+		i++;
+	}
+	return 0;
+}

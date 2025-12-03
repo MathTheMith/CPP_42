@@ -18,6 +18,13 @@ Cat::Cat()
 	std::cout << "Constructor Cat called" << std::endl;
 }
 
+Cat &Cat::operator=(const Cat *other)
+{
+	if (this != other)
+		this->type = other->type;
+	return *this;
+}
+
 Cat::~Cat()
 {
 	std::cout << "Constructor Cat deleted" << std::endl;

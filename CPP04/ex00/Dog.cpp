@@ -19,6 +19,13 @@ Dog::Dog()
 	std::cout << "Constructor Dog called" << std::endl;
 }
 
+Dog &Dog::operator=(const Dog *other)
+{
+	if (this != other)
+		this->type = other->type;
+	return *this;
+}
+
 Dog::~Dog()
 {
 	std::cout << "Constructor Dog deleted" << std::endl;

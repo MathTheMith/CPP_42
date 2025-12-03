@@ -16,18 +16,19 @@
 
 int main()
 {
-	Animal* array[100];
+	int nb = 2;
+	Animal* array[nb];
 	int i = 0;
-	while (i < 100)
+	while (i < nb)
 	{
-		if (i < 50)
+		if (i < nb / 2)
 			array[i] = new Dog();
 		else
 			array[i] = new Cat();
 		i++; 
 	}
 	i = 0;
-	while (i < 100)
+	while (i < nb)
 	{
 		delete array[i];
 		i++;

@@ -14,12 +14,19 @@
 
 Animal::Animal()
 {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "Constructor Animalcalled" << std::endl;
+}
+
+Animal &Animal::operator=(const Animal *other)
+{
+	if (this != other)
+		this->type = other->type;
+	return *this;
 }
 
 Animal::~Animal()
 {
-	std::cout << "Constructor deleted" << std::endl;
+	std::cout << "Constructor Animal deleted" << std::endl;
 }
 
 void Animal::makeSound() const

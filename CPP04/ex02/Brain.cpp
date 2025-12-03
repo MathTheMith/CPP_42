@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 14:44:43 by marvin            #+#    #+#             */
-/*   Updated: 2025/10/22 14:44:43 by marvin           ###   ########.fr       */
+/*   Created: 2025/10/22 15:11:30 by marvin            #+#    #+#             */
+/*   Updated: 2025/10/22 15:11:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#include "Brain.hpp"
 
-#include "Animal.hpp"
+Brain::Brain()
+{
+	std::cout << "Constructor Brain called" << std::endl;
+}
 
-class Dog : public Animal{
-
-public:
-	Dog();
-	Dog &operator=(const Dog *other);
-	~Dog();
-	void makeSound() const;
-
-};
-
-#endif
+Brain::~Brain()
+{
+	std::cout << "Constructor Brain deleted" << std::endl;
+}

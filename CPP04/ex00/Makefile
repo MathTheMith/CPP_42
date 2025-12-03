@@ -5,17 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/17 16:00:00 by mvachon           #+#    #+#              #
-#    Updated: 2025/10/17 16:00:00 by mvachon          ###   ########.fr        #
+#    Created: 2025/12/03 09:16:10 by mvachon           #+#    #+#              #
+#    Updated: 2025/12/03 09:16:10 by mvachon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = a.out
-
+NAME = Animal
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp Cat.cpp Dog.cpp Animal.cpp
+SRCS = main.cpp Cat.cpp WrongCat.cpp Dog.cpp Animal.cpp WrongAnimal.cpp
+
+HEADERS = Animal.hpp Cat.hpp WrongCat.hpp Dog.hpp WrongAnimal.hpp
+
 OBJDIR = obj
 OBJS = $(SRCS:%.cpp=$(OBJDIR)/%.o)
 
@@ -32,7 +34,7 @@ $(NAME): $(OBJDIR) $(OBJS)
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)✓ $(NAME) compiled successfully!$(RESET)"
 
-$(OBJDIR)/%.o: %.cpp | $(OBJDIR)
+$(OBJDIR)/%.o: %.cpp $(HEADERS) | $(OBJDIR)
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 	@echo "$(GREEN)✓ Compiled: $<$(RESET)"
 
