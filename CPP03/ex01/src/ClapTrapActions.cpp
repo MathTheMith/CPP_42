@@ -6,11 +6,11 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 08:12:01 by mvachon           #+#    #+#             */
-/*   Updated: 2025/12/03 09:10:50 by mvachon          ###   ########.fr       */
+/*   Updated: 2025/12/03 12:48:46 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "../includes/ClapTrap.hpp"
 
 void ClapTrap::attack(const std::string& target)
 {

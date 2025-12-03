@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/12/03 12:48:15 by mvachon           #+#    #+#              #
-#    Updated: 2025/12/03 12:48:15 by mvachon          ###   ########.fr        #
+#    Created: 2025/10/17 16:00:00 by mvachon           #+#    #+#              #
+#    Updated: 2025/10/17 16:00:00 by mvachon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,13 @@ SRCS = src/main.cpp \
        src/ClapTrap.cpp \
        src/ClapTrapActions.cpp \
        src/ScavTrap.cpp \
-       src/FragTrap.cpp
+       src/FragTrap.cpp \
+       src/DiamondTrap.cpp \
 
 HEADERS = includes/ClapTrap.hpp \
           includes/ScavTrap.hpp \
-          includes/FragTrap.hpp
+          includes/FragTrap.hpp \
+          includes/DiamondTrap.hpp
 
 OBJDIR = obj
 OBJS = $(SRCS:src/%.cpp=$(OBJDIR)/%.o)

@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
-#include "ClapTrap.hpp"
+#include "../includes/ScavTrap.hpp"
+#include "../includes/ClapTrap.hpp"
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
@@ -44,6 +44,9 @@ ScavTrap::~ScavTrap()
 {
 	std::cout << "Destructor ScavTrap called" << std::endl;
 }
+
+int ScavTrap::GetStEnergyPoints() {return this->_energy_points;}
+
 
 void ScavTrap::guardGate()
 {

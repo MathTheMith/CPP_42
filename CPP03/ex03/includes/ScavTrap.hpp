@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 12:33:50 by marvin            #+#    #+#             */
-/*   Updated: 2025/10/22 12:33:50 by marvin           ###   ########.fr       */
+/*   Created: 2025/10/22 14:04:22 by marvin            #+#    #+#             */
+/*   Updated: 2025/10/22 14:04:22 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
-int main()
-{
-    ScavTrap st("Bob");
-    ClapTrap ct("Jhon");
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
-    st.attack("Ennemy");
-    st.takeDamage(30);
-    st.beRepaired(20);
-    st.guardGate();
-    ct.attack("Ennemy");
-    ct.takeDamage(30);
-    ct.beRepaired(20);
+#include <iostream>
+#include <string>
+#include "../includes/ClapTrap.hpp"
 
-    return 0;
-}
+class ScavTrap : virtual public ClapTrap{
+
+	public:
+		ScavTrap();
+		ScavTrap(std::string name);
+		ScavTrap &operator=(const ScavTrap &a);
+
+		~ScavTrap();
+		int GetStEnergyPoints();
+		void guardGate();
+};
+
+#endif

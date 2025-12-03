@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 14:06:11 by marvin            #+#    #+#             */
-/*   Updated: 2025/10/22 14:06:11 by marvin           ###   ########.fr       */
+/*   Created: 2025/10/22 14:29:01 by marvin            #+#    #+#             */
+/*   Updated: 2025/10/22 14:29:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
-#include "ClapTrap.hpp"
+#include "../includes/FragTrap.hpp"
+#include "../includes/ClapTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap()
+FragTrap::FragTrap() : ClapTrap()
 {
     this->_hit_points = 100;
-    this->_energy_points = 50;
-    this->_attack_damage = 20;
-    std::cout << "ScavTrap constructor called" << std::endl;
+    this->_energy_points = 100;
+    this->_attack_damage = 30;
+    std::cout << "FragTrap constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
     this->_hit_points = 100;
-    this->_energy_points = 50;
-    this->_attack_damage = 20;
-    std::cout << "ScavTrap constructor called" << std::endl;
+    this->_energy_points = 100;
+    this->_attack_damage = 30;
+    std::cout << "FragTrap constructor called" << std::endl;
 }
 
-ScavTrap &ScavTrap::operator=(const ScavTrap &a)
+FragTrap &FragTrap::operator=(const FragTrap &a)
 {
     if (this != &a)
     {
@@ -40,12 +40,12 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &a)
     return *this;
 }
 
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
-	std::cout << "Destructor ScavTrap called" << std::endl;
+	std::cout << "Destructor FragTrap called" << std::endl;
 }
 
-void ScavTrap::guardGate()
+void FragTrap::highFivesGuys(void)
 {
-	std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;
+	std::cout << "FragTrap ask for a positive high-fives request" << std::endl;
 }
