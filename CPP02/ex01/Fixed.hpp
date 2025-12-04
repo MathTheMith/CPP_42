@@ -34,7 +34,8 @@ public:
     int toInt(void) const;
     float toFloat(void) const;
 
-    friend std::ostream &operator<<(std::ostream &os, const Fixed &f);
 };
+
+std::ostream &operator<<(std::ostream &os, const Fixed &f);
 
 #endif

@@ -25,8 +25,6 @@ public :
 	Fixed &operator=(const Fixed &a);
 	~Fixed();
 
-	friend std::ostream &operator<<(std::ostream &os, const Fixed &f);
-
 	bool operator>(const Fixed &other) const;
     bool operator<(const Fixed &other) const;
     bool operator>=(const Fixed &other) const;
@@ -53,9 +51,4 @@ public :
 	float toFloat( void ) const;
 };
 
-class Point{
-
-private:
-	Fixed const a;
-	Fixed const b;
-};
+std::ostream &operator<<(std::ostream &os, const Fixed &f);

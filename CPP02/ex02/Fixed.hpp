@@ -28,8 +28,6 @@ public :
 	Fixed &operator=(const Fixed &a);
 	~Fixed();
 
-	friend std::ostream &operator<<(std::ostream &os, const Fixed &f);
-
 	bool operator>(const Fixed &other) const;
     bool operator<(const Fixed &other) const;
     bool operator>=(const Fixed &other) const;
@@ -55,5 +53,7 @@ public :
 	int toInt(void) const;
 	float toFloat(void) const;
 };
+
+std::ostream &operator<<(std::ostream &os, const Fixed &f);
 
 #endif
