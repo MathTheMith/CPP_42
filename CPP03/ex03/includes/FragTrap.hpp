@@ -20,8 +20,11 @@
 class FragTrap : virtual public ClapTrap{
 
 	public:
+		static const int FtHitPoints = 100;
+		static const int FtAttackDamage = 30;
 		FragTrap();
 		FragTrap(std::string name);
+		FragTrap(const FragTrap &other);
 		FragTrap &operator=(const FragTrap &a);
 
 		~FragTrap();

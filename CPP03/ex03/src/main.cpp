@@ -26,7 +26,7 @@ int main()
 
     std::cout << "\nfragtrap" << std::endl;
     FragTrap ft("Jack");
-    ft.attack("Ennemy");
+    ft.attack("Ennemy1");
     ft.beRepaired(20);
     ft.takeDamage(30);
     ft.highFivesGuys();
@@ -34,12 +34,11 @@ int main()
     std::cout << "\ndiamondtrap" << std::endl;
     DiamondTrap dt("Paul");
     dt.attack("Ennemy2");
+    dt.whoAmI();
 
     std::cout << "\nClaptrap\n";
     ClapTrap p("Jhon");
-    // dt.takeDamage(30);
-    // dt.beRepaired(20);
-    p.attack("Ennemy");
+    p.attack("Ennemy3");
     p.takeDamage(30);
     p.beRepaired(20);
 

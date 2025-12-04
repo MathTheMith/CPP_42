@@ -6,7 +6,7 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 10:22:42 by mvachon           #+#    #+#             */
-/*   Updated: 2025/12/03 12:55:46 by mvachon          ###   ########.fr       */
+/*   Updated: 2025/12/04 09:58:43 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,39 @@
 
 DiamondTrap::DiamondTrap() : _name("Default")
 {
+    this->ClapTrap::_name = "Default_clap_name";
+    this->_hit_points = FragTrap::FtHitPoints;
+    this->_attack_damage = FragTrap::FtAttackDamage;
+    this->_energy_points = ScavTrap::StEnergyPoints;
+
     std::cout << "DiamondTrap constructor called" << std::endl;
 }
 
 
 DiamondTrap::DiamondTrap(std::string name) : _name(name)
 {
-    ClapTrap ct;
-    _CtName = ct.GetCtName() + "_clap_name";
-	std::cout << "DiamondTrap constructor called" << std::endl;
+    this->ClapTrap::_name = name + "_clap_name";
+    this->_hit_points = FragTrap::FtHitPoints;
+    this->_attack_damage = FragTrap::FtAttackDamage;
+    this->_energy_points = ScavTrap::StEnergyPoints;
+
+    std::cout << "DiamondTrap constructor called" << std::endl;
 }
 
-DiamondTrap &DiamondTrap::operator=(const DiamondTrap &a)
+DiamondTrap::DiamondTrap(const DiamondTrap &other) 
 {
-    if (this != &a)
+    *this = other;
+}
+
+DiamondTrap &DiamondTrap::operator=(const DiamondTrap &other)
+{
+    if (this != &other)
     {
-        FragTrap::_attack_damage = a.FragTrap::_attack_damage;
-        ScavTrap::_energy_points = a.ScavTrap::_energy_points;
-        FragTrap::_hit_points = a.FragTrap::_hit_points;
+        this->ClapTrap::_name = other.ClapTrap::_name;
+        this->_name = other._name;
+        this->_attack_damage = other.FtAttackDamage;
+        this->_energy_points = other.StEnergyPoints;
+        this->_hit_points = other.FtHitPoints;
     }
     return *this;
 }
@@ -46,4 +61,10 @@ DiamondTrap::~DiamondTrap()
 void DiamondTrap::attack(const std::string& target)
 {
     ScavTrap::attack(target);
+}
+
+void DiamondTrap::whoAmI()
+{
+    std::cout << "My name: " << this->_name << 
+        "\nMy ClapTrap name: " <<  ClapTrap::_name << std::endl;
 }
