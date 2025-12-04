@@ -29,6 +29,11 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
     std::cout << "FragTrap constructor called" << std::endl;
 }
 
+FragTrap::FragTrap(const FragTrap &other)
+{
+    *this = other;
+}
+
 FragTrap &FragTrap::operator=(const FragTrap &a)
 {
     if (this != &a)

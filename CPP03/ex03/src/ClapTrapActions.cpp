@@ -6,7 +6,7 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 08:12:01 by mvachon           #+#    #+#             */
-/*   Updated: 2025/12/03 12:55:04 by mvachon          ###   ########.fr       */
+/*   Updated: 2025/12/04 10:15:37 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void ClapTrap::attack(const std::string& target)
 {
-    if (this->_hit_points == 0 || this->_energy_points == 0)
+    if (this->_hit_points <= 0 || this->_energy_points <= 0)
     {
-        std::cout << "No more hit points or energy points" << std::endl;
+        std::cout << "ClapTrap " << this->_name 
+                  << " can't attack: no hit points or energy points!" << std::endl;
         return;
     }
 
@@ -28,13 +29,17 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    if (this->_hit_points == 0 || this->_energy_points == 0)
+    if (this->_hit_points <= 0)
     {
-        std::cout << "No more hit points or energy points" << std::endl;
+        std::cout << "ClapTrap " << this->_name 
+                  << " is already destroyed!" << std::endl;
         return;
     }
 
     this->_hit_points -= amount;
+    
+    if (this->_hit_points < 0)
+        this->_hit_points = 0;
 
     std::cout << "ClapTrap " << this->_name << " takes " << amount 
               << " points of damage, remaining HP: " << this->_hit_points << std::endl;
@@ -42,9 +47,17 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    if (this->_hit_points == 0 || this->_energy_points == 0)
+    if (this->_hit_points <= 0)
     {
-        std::cout << "No more hit points or energy points" << std::endl;
+        std::cout << "ClapTrap " << this->_name 
+                  << " can't be repaired: destroyed!" << std::endl;
+        return;
+    }
+    
+    if (this->_energy_points <= 0)
+    {
+        std::cout << "ClapTrap " << this->_name 
+                  << " can't be repaired: no energy points!" << std::endl;
         return;
     }
 

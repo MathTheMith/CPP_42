@@ -24,6 +24,11 @@ ClapTrap::ClapTrap(std::string name)
 	std::cout << "Default constructor called" << std::endl;
 }
 
+ClapTrap::ClapTrap(ClapTrap &other)
+{
+    *this = other;
+}
+
 ClapTrap &ClapTrap::operator=(const ClapTrap &a)
 {
     if (this != &a)

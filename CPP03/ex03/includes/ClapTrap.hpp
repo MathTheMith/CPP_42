@@ -30,7 +30,7 @@ class ClapTrap{
 		ClapTrap(const ClapTrap &other);
 		ClapTrap &operator=(const ClapTrap &a);
 
-		~ClapTrap();
+		virtual ~ClapTrap();
 
 		std::string GetCtName();
 		void attack(const std::string& target);

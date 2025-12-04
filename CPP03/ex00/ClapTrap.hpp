@@ -24,6 +24,7 @@ private :
 public :
 	ClapTrap();
 	ClapTrap(std::string name);
+	ClapTrap(ClapTrap &other);
 	ClapTrap &operator=(const ClapTrap &a);
 	~ClapTrap();
 

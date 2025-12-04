@@ -29,6 +29,12 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
     std::cout << "ScavTrap constructor called" << std::endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &other)
+{
+    *this = other;
+}
+
+
 ScavTrap &ScavTrap::operator=(const ScavTrap &a)
 {
     if (this != &a)

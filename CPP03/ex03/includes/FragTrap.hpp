@@ -27,7 +27,7 @@ class FragTrap : virtual public ClapTrap{
 		FragTrap(const FragTrap &other);
 		FragTrap &operator=(const FragTrap &a);
 
-		~FragTrap();
+		virtual ~FragTrap();
 		void highFivesGuys(void);
 		int GetFtAttackDamage();
 		int GetFtHitPoints();

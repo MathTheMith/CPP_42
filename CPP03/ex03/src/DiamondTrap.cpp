@@ -6,7 +6,7 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 10:22:42 by mvachon           #+#    #+#             */
-/*   Updated: 2025/12/04 09:58:43 by mvachon          ###   ########.fr       */
+/*   Updated: 2025/12/04 10:08:56 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,12 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &other)
     {
         this->ClapTrap::_name = other.ClapTrap::_name;
         this->_name = other._name;
-        this->_attack_damage = other.FtAttackDamage;
-        this->_energy_points = other.StEnergyPoints;
-        this->_hit_points = other.FtHitPoints;
+        this->_attack_damage = other._attack_damage;
+        this->_energy_points = other._energy_points;
+        this->_hit_points = other._hit_points;
     }
     return *this;
 }
-
 DiamondTrap::~DiamondTrap()
 {
 	std::cout << "DiamondTrap destructor called" << std::endl;

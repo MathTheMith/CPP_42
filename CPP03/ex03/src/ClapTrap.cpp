@@ -15,13 +15,13 @@
 std::string ClapTrap::GetCtName() {return _name;}
 
 ClapTrap::ClapTrap() 
-	: _hit_points(100), _energy_points(10), _attack_damage(0)
+	: _hit_points(10), _energy_points(10), _attack_damage(0)
 {
 	std::cout << "ClapTrap constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
-	: _name(name), _hit_points(100), _energy_points(10), _attack_damage(0)
+	: _name(name), _hit_points(10), _energy_points(10), _attack_damage(0)
 {
 	std::cout << "ClapTrap constructor called" << std::endl;
 }
