@@ -19,7 +19,8 @@ int main()
 {
     ScavTrap st("Bob");
     FragTrap ft("Jack");
-    // ClapTrap p("Jhon");
+    ClapTrap p("Jhon");
+    std::cout << std::endl;
     st.attack("Ennemy");
     st.takeDamage(30);
     st.beRepaired(20);
@@ -28,9 +29,9 @@ int main()
     ft.takeDamage(30);
     ft.beRepaired(20);
     ft.highFivesGuys();
-    // p.attack("Ennemy");
-    // p.takeDamage(30);
-    // p.beRepaired(20);
-
+    p.attack("Ennemy");
+    p.takeDamage(30);
+    p.beRepaired(20);
+    std::cout << std::endl;
     return 0;
 }
