@@ -17,6 +17,11 @@ WrongAnimal::WrongAnimal()
 	std::cout << "Constructor WrongAnimal called" << std::endl;
 }
 
+WrongAnimal::WrongAnimal(const WrongAnimal *other)
+{
+	*this = other;
+}
+
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal *other)
 {
 	if (this != other)

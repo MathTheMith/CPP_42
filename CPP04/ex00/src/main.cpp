@@ -22,14 +22,19 @@ int main()
 	const Animal* d = new Dog();
 	const Animal* c = new Cat();
 	const WrongAnimal* w = new WrongCat();
+	std::cout<<std::endl;
+
 	std::cout << d->getType() << std::endl;
 	std::cout << c->getType() << std::endl;
 	std::cout << w->getType() << std::endl;
+
+	std::cout<<std::endl;
 	d->makeSound();
 	c->makeSound();
 	w->makeSound();
 	meta->makeSound();
 
+	std::cout<<std::endl;
 	delete meta;
 	delete wrong_meta;
 	delete d;

@@ -17,6 +17,18 @@ Brain::Brain()
 	std::cout << "Constructor Brain called" << std::endl;
 }
 
+Brain::Brain(const Brain *other)
+{
+	*this = other;
+}
+
+Brain &Brain::operator=(const Brain *other)
+{
+	if (this != other)
+		this->ideas[100] = other->ideas[100];
+	return *this;
+}
+
 Brain::~Brain()
 {
 	std::cout << "Constructor Brain deleted" << std::endl;

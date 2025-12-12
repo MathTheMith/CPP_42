@@ -19,6 +19,11 @@ Cat::Cat() : brain(new Brain())
 	std::cout << "Constructor Cat called" << std::endl;
 }
 
+Cat::Cat(const Cat *other)
+{
+	*this = other;
+}
+
 Cat &Cat::operator=(const Cat *other)
 {
 	if (this != other)

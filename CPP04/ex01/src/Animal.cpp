@@ -17,6 +17,11 @@ Animal::Animal()
 	std::cout << "Constructor Animal called" << std::endl;
 }
 
+Animal::Animal(const Animal *other)
+{
+	*this = other;
+}
+
 Animal &Animal::operator=(const Animal *other)
 {
 	if (this != other)
