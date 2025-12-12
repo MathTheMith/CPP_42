@@ -21,6 +21,7 @@ int main()
     FragTrap ft("Jack");
     ClapTrap p("Jhon");
     std::cout << std::endl;
+    
     st.attack("Ennemy");
     st.takeDamage(30);
     st.beRepaired(20);

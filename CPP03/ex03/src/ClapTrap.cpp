@@ -46,4 +46,3 @@ ClapTrap::~ClapTrap()
 {
 	std::cout << "ClapTrap Destructor called" << std::endl;
 }
-

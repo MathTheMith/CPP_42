@@ -26,7 +26,7 @@ class FragTrap : public ClapTrap{
 		FragTrap &operator=(const FragTrap &a);
 
 		~FragTrap();
-		void highFivesGuys(void);
+		void highFivesGuys(void) const;
 };
 
 #endif

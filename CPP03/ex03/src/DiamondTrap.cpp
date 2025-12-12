@@ -6,7 +6,7 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 10:22:42 by mvachon           #+#    #+#             */
-/*   Updated: 2025/12/04 10:08:56 by mvachon          ###   ########.fr       */
+/*   Updated: 2025/12/12 08:25:31 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void DiamondTrap::attack(const std::string& target)
     ScavTrap::attack(target);
 }
 
-void DiamondTrap::whoAmI()
+void DiamondTrap::whoAmI() const
 {
     std::cout << "My name: " << this->_name << 
         "\nMy ClapTrap name: " <<  ClapTrap::_name << std::endl;

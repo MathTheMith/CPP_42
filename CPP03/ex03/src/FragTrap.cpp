@@ -50,10 +50,7 @@ FragTrap::~FragTrap()
 	std::cout << "Destructor FragTrap called" << std::endl;
 }
 
-int FragTrap::GetFtAttackDamage() {return this->_attack_damage;}
-int FragTrap::GetFtHitPoints() {return this->_hit_points;}
-
-void FragTrap::highFivesGuys(void)
+void FragTrap::highFivesGuys(void) const
 {
 	std::cout << "FragTrap ask for a positive high-fives request" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 10:21:27 by mvachon           #+#    #+#             */
-/*   Updated: 2025/12/03 14:27:52 by mvachon          ###   ########.fr       */
+/*   Updated: 2025/12/12 08:26:05 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class DiamondTrap :public FragTrap,
 		~DiamondTrap();
 
 		void attack(const std::string& target);
-		void whoAmI();
+		void whoAmI() const;
 };
 
 #endif

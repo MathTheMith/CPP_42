@@ -28,9 +28,8 @@ class FragTrap : virtual public ClapTrap{
 		FragTrap &operator=(const FragTrap &a);
 
 		virtual ~FragTrap();
-		void highFivesGuys(void);
-		int GetFtAttackDamage();
-		int GetFtHitPoints();
+		void highFivesGuys() const;
+
 };
 
 #endif

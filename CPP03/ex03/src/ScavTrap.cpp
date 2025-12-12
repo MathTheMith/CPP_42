@@ -50,10 +50,7 @@ ScavTrap::~ScavTrap()
 	std::cout << "Destructor ScavTrap called" << std::endl;
 }
 
-int ScavTrap::GetStEnergyPoints() {return this->_energy_points;}
-
-
-void ScavTrap::guardGate()
+void ScavTrap::guardGate() const
 {
 	std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;
 }

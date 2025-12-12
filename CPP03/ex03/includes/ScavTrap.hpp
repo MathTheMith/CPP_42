@@ -27,8 +27,7 @@ class ScavTrap : virtual public ClapTrap{
 		ScavTrap &operator=(const ScavTrap &a);
 
 		virtual ~ScavTrap();
-		int GetStEnergyPoints();
-		void guardGate();
+		void guardGate() const;
 };
 
 #endif

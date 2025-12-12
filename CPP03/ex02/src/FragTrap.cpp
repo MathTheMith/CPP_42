@@ -50,7 +50,7 @@ FragTrap::~FragTrap()
 	std::cout << "Destructor FragTrap called" << std::endl;
 }
 
-void FragTrap::highFivesGuys(void)
+void FragTrap::highFivesGuys(void) const
 {
-	std::cout << "FragTrap " << this->_name << " ask for a positive high-fives request" << std::endl;
+	std::cout << "Player " << this->_name << " ask for a positive high-fives request" << std::endl;
 }

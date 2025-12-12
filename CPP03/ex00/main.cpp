@@ -17,7 +17,7 @@ int main(void)
     ClapTrap him("test");
 
     him.attack("enemy");
-    him.takeDamage(5);
-    him.beRepaired(3);
+    him.takeDamage(-5);
+    him.beRepaired(-3);
     him.attack("enemy");
 }

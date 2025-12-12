@@ -50,7 +50,7 @@ ScavTrap::~ScavTrap()
 	std::cout << "Destructor ScavTrap called" << std::endl;
 }
 
-void ScavTrap::guardGate()
+void ScavTrap::guardGate() const
 {
-	std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode" << std::endl;
+	std::cout << "Player " << this->_name << " is now in Gate keeper mode" << std::endl;
 }

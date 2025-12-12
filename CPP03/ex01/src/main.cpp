@@ -16,7 +16,7 @@ int main()
 {
     ScavTrap st("Bob");
     ClapTrap ct("Jhon");
-
+    std::cout << std::endl;
     st.attack("Ennemy");
     st.takeDamage(30);
     st.beRepaired(20);
@@ -24,6 +24,7 @@ int main()
     ct.attack("Ennemy");
     ct.takeDamage(30);
     ct.beRepaired(20);
+    std::cout << std::endl;
 
     return 0;
 }

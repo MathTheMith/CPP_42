@@ -53,5 +53,11 @@ ScavTrap::~ScavTrap()
 
 void ScavTrap::guardGate()
 {
-	std::cout << "ScavTrap " <<  this->_name << "is now in Gate keeper mode" << std::endl;
+    if (this->_hit_points <= 0 || this->_energy_points <= 0)
+    {
+        std::cout << "No more hit points or energy points" << std::endl;
+        return;
+    }
+
+	std::cout << "Player " <<  this->_name << " is now in Gate keeper mode" << std::endl;
 }
