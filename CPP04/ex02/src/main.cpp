@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 15:11:30 by marvin            #+#    #+#             */
-/*   Updated: 2025/10/22 15:11:30 by marvin           ###   ########.fr       */
+/*   Created: 2025/10/22 14:36:56 by marvin            #+#    #+#             */
+/*   Updated: 2025/10/22 14:36:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#include "../includes/Animal.hpp"
+#include "../includes/Dog.hpp"
+#include "../includes/Cat.hpp"
 
-Brain::Brain()
+int main()
 {
-	std::cout << "Constructor Brain called" << std::endl;
-}
-
-Brain::~Brain()
-{
-	std::cout << "Constructor Brain deleted" << std::endl;
+	Animal* array[6];
+	int i = 0;
+	while (i < 6)
+	{
+		if (i < 3)
+			array[i] = new Dog();
+		else
+			array[i] = new Cat();
+		i++; 
+	}
+	i = 0;
+	while (i < 6)
+	{
+		delete array[i];
+		i++;
+	}
+	return 0;
 }

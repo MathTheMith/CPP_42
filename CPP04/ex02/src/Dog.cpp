@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 14:40:02 by marvin            #+#    #+#             */
-/*   Updated: 2025/10/22 14:40:02 by marvin           ###   ########.fr       */
+/*   Created: 2025/10/22 14:47:30 by marvin            #+#    #+#             */
+/*   Updated: 2025/10/22 14:47:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "../includes/Dog.hpp"
+#include "../includes/Brain.hpp"
 
-Animal::Animal()
+Dog::Dog() : brain(new Brain()) 
 {
-	std::cout << "Constructor Animal called" << std::endl;
+	type = "Dog";
+	std::cout << "Constructor Dog called" << std::endl;
 }
 
-Animal &Animal::operator=(const Animal *other)
+Dog &Dog::operator=(const Dog *other)
 {
 	if (this != other)
 		this->type = other->type;
 	return *this;
 }
 
-Animal::~Animal()
+Dog::~Dog()
 {
-	std::cout << "Constructor Animal deleted" << std::endl;
+	delete brain;
+	std::cout << "Constructor Dog deleted" << std::endl;
 }
 
-void Animal::makeSound() const
+void Dog::makeSound() const
 {
-	std::cout << "Animal sound" << std::endl;
+	std::cout << "Dog sound" << std::endl;
 }
-
-std::string Animal::getType() const {return type;}

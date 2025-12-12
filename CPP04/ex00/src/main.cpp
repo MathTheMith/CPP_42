@@ -10,28 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#include "../includes/Animal.hpp"
+#include "../includes/Dog.hpp"
+#include "../includes/Cat.hpp"
+#include "../includes/WrongCat.hpp"
 
 int main()
 {
-	int nb = 2;
-	Animal* array[nb];
-	int i = 0;
-	while (i < nb)
-	{
-		if (i < nb / 2)
-			array[i] = new Dog();
-		else
-			array[i] = new Cat();
-		i++; 
-	}
-	i = 0;
-	while (i < nb)
-	{
-		delete array[i];
-		i++;
-	}
+	const Animal* meta = new Animal();
+	const WrongAnimal* wrong_meta = new WrongAnimal();
+	const Animal* d = new Dog();
+	const Animal* c = new Cat();
+	const WrongAnimal* w = new WrongCat();
+	std::cout << d->getType() << std::endl;
+	std::cout << c->getType() << std::endl;
+	std::cout << w->getType() << std::endl;
+	d->makeSound();
+	c->makeSound();
+	w->makeSound();
+	meta->makeSound();
+
+	delete meta;
+	delete wrong_meta;
+	delete d;
+	delete c;
+	delete w;
 	return 0;
 }

@@ -5,21 +5,27 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/12/03 09:39:54 by mvachon           #+#    #+#              #
-#    Updated: 2025/12/03 09:39:54 by mvachon          ###   ########.fr        #
+#    Created: 2025/12/03 12:48:15 by mvachon           #+#    #+#              #
+#    Updated: 2025/12/03 12:48:15 by mvachon          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Animal
+NAME = ClapTrap
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp Cat.cpp Dog.cpp Animal.cpp Brain.cpp
+SRCS = src/main.cpp \
+		src/Cat.cpp \
+		src/Dog.cpp \
+		src/Animal.cpp \
+		src/Brain.cpp
 
-HEADERS = Animal.hpp Cat.hpp Dog.hpp Brain.hpp
-
+HEADERS = includes/Animal.hpp \
+			includes/Cat.hpp \
+			includes/Dog.hpp \
+			includes/Brain.hpp
 OBJDIR = obj
-OBJS = $(SRCS:%.cpp=$(OBJDIR)/%.o)
+OBJS = $(SRCS:src/%.cpp=$(OBJDIR)/%.o)
 
 GREEN = \033[0;32m
 RED = \033[0;31m
@@ -34,7 +40,7 @@ $(NAME): $(OBJDIR) $(OBJS)
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)✓ $(NAME) compiled successfully!$(RESET)"
 
-$(OBJDIR)/%.o: %.cpp $(HEADERS) | $(OBJDIR)
+$(OBJDIR)/%.o: src/%.cpp $(HEADERS)
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 	@echo "$(GREEN)✓ Compiled: $<$(RESET)"
 

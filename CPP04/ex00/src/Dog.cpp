@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 14:36:56 by marvin            #+#    #+#             */
-/*   Updated: 2025/10/22 14:36:56 by marvin           ###   ########.fr       */
+/*   Created: 2025/10/22 14:47:30 by marvin            #+#    #+#             */
+/*   Updated: 2025/10/22 14:47:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#include "../includes/Dog.hpp"
+#include "../includes/Animal.hpp"
 
-int main()
+Dog::Dog()
 {
-	Animal* array[6];
-	int i = 0;
-	while (i < 6)
-	{
-		if (i < 3)
-			array[i] = new Dog();
-		else
-			array[i] = new Cat();
-		i++; 
-	}
-	i = 0;
-	while (i < 6)
-	{
-		delete array[i];
-		i++;
-	}
-	return 0;
+	type = "Dog";
+	std::cout << "Constructor Dog called" << std::endl;
+}
+
+Dog &Dog::operator=(const Dog *other)
+{
+	if (this != other)
+		this->type = other->type;
+	return *this;
+}
+
+Dog::~Dog()
+{
+	std::cout << "Constructor Dog deleted" << std::endl;
+}
+
+void Dog::makeSound() const
+{
+	std::cout << "Dog sound" << std::endl;
 }

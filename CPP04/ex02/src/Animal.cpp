@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                         :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,28 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
+#include "../includes/Animal.hpp"
 
-WrongAnimal::WrongAnimal()
+Animal::Animal()
 {
-	std::cout << "Constructor WrongAnimal called" << std::endl;
+	std::cout << "Constructor Animal called" << std::endl;
 }
 
-WrongAnimal &WrongAnimal::operator=(const WrongAnimal *other)
+Animal &Animal::operator=(const Animal *other)
 {
 	if (this != other)
 		this->type = other->type;
 	return *this;
 }
 
-WrongAnimal::~WrongAnimal()
+Animal::~Animal()
 {
-	std::cout << "Constructor WrongAnimal deleted" << std::endl;
+	std::cout << "Constructor Animal deleted" << std::endl;
 }
 
-void WrongAnimal::makeSound() const
+void Animal::makeSound() const
 {
-	std::cout << "WrongAnimal sound" << std::endl;
+	std::cout << "Animal sound" << std::endl;
 }
 
-std::string WrongAnimal::getType() const {return type;}
+std::string Animal::getType() const {return type;}

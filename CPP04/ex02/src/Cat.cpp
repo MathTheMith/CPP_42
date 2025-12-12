@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Brain.hpp"
+#include "../includes/Cat.hpp"
+#include "../includes/Brain.hpp"
 
 Cat::Cat() : brain(new Brain())
 {

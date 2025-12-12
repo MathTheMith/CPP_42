@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 15:11:30 by marvin            #+#    #+#             */
-/*   Updated: 2025/10/22 15:11:30 by marvin           ###   ########.fr       */
+/*   Created: 2025/10/22 14:44:18 by marvin            #+#    #+#             */
+/*   Updated: 2025/10/22 14:44:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#include "../includes/Cat.hpp"
 
-Brain::Brain()
+Cat::Cat() 
 {
-	std::cout << "Constructor Brain called" << std::endl;
+	type = "Cat";
+	std::cout << "Constructor Cat called" << std::endl;
 }
 
-Brain::~Brain()
+Cat &Cat::operator=(const Cat *other)
 {
-	std::cout << "Constructor Brain deleted" << std::endl;
+	if (this != other)
+		this->type = other->type;
+	return *this;
+}
+
+Cat::~Cat()
+{
+	std::cout << "Constructor Cat deleted" << std::endl;
+}
+
+void Cat::makeSound() const
+{
+	std::cout << "Cat sound" << std::endl;
 }

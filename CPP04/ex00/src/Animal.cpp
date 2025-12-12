@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "../includes/Animal.hpp"
 
 Animal::Animal()
 {
-	std::cout << "Constructor Animalcalled" << std::endl;
+	std::cout << "Constructor Animal called" << std::endl;
 }
 
 Animal &Animal::operator=(const Animal *other)

@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 14:47:30 by marvin            #+#    #+#             */
-/*   Updated: 2025/10/22 14:47:30 by marvin           ###   ########.fr       */
+/*   Created: 2025/10/22 14:40:02 by marvin            #+#    #+#             */
+/*   Updated: 2025/10/22 14:40:02 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Brain.hpp"
+#include "../includes/WrongAnimal.hpp"
 
-Dog::Dog() : brain(new Brain()) 
+WrongAnimal::WrongAnimal()
 {
-	type = "Dog";
-	std::cout << "Constructor Dog called" << std::endl;
+	std::cout << "Constructor WrongAnimal called" << std::endl;
 }
 
-Dog &Dog::operator=(const Dog *other)
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal *other)
 {
 	if (this != other)
 		this->type = other->type;
 	return *this;
 }
 
-Dog::~Dog()
+WrongAnimal::~WrongAnimal()
 {
-	delete brain;
-	std::cout << "Constructor Dog deleted" << std::endl;
+	std::cout << "Constructor WrongAnimal deleted" << std::endl;
 }
 
-void Dog::makeSound() const
+void WrongAnimal::makeSound() const
 {
-	std::cout << "Dog sound" << std::endl;
+	std::cout << "WrongAnimal sound" << std::endl;
 }
+
+std::string WrongAnimal::getType() const {return type;}

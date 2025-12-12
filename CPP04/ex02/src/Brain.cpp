@@ -1,37 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 14:47:30 by marvin            #+#    #+#             */
-/*   Updated: 2025/10/22 14:47:30 by marvin           ###   ########.fr       */
+/*   Created: 2025/10/22 15:11:30 by marvin            #+#    #+#             */
+/*   Updated: 2025/10/22 15:11:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Animal.hpp"
+#include "../includes/Brain.hpp"
 
-Dog::Dog()
+Brain::Brain()
 {
-	type = "Dog";
-	std::cout << "Constructor Dog called" << std::endl;
+	std::cout << "Constructor Brain called" << std::endl;
 }
 
-Dog &Dog::operator=(const Dog *other)
+Brain::~Brain()
 {
-	if (this != other)
-		this->type = other->type;
-	return *this;
-}
-
-Dog::~Dog()
-{
-	std::cout << "Constructor Dog deleted" << std::endl;
-}
-
-void Dog::makeSound() const
-{
-	std::cout << "Dog sound" << std::endl;
+	std::cout << "Constructor Brain deleted" << std::endl;
 }
