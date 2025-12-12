@@ -30,7 +30,7 @@ class ClapTrap{
 		ClapTrap(const ClapTrap &other);
 		ClapTrap &operator=(const ClapTrap &a);
 
-		~ClapTrap();
+		virtual ~ClapTrap();
 
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);

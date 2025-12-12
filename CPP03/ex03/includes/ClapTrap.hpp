@@ -32,8 +32,7 @@ class ClapTrap{
 
 		virtual ~ClapTrap();
 
-		std::string GetCtName();
-		void attack(const std::string& target);
+		virtual void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 };

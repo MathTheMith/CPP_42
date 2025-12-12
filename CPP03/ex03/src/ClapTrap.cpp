@@ -12,8 +12,6 @@
 
 #include "../includes/ClapTrap.hpp"
 
-std::string ClapTrap::GetCtName() {return _name;}
-
 ClapTrap::ClapTrap() 
 	: _hit_points(10), _energy_points(10), _attack_damage(0)
 {

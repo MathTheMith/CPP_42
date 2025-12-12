@@ -52,7 +52,7 @@ ScavTrap::~ScavTrap()
 	std::cout << "Destructor ScavTrap called" << std::endl;
 }
 
-void ScavTrap::guardGate()
+void ScavTrap::guardGate() const
 {
     if (this->_hit_points <= 0 || this->_energy_points <= 0)
     {
