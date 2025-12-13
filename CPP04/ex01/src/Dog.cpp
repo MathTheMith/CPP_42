@@ -15,19 +15,23 @@
 
 Dog::Dog() : brain(new Brain()) 
 {
-	type = "Dog";
+	_type = "Dog";
 	std::cout << "Constructor Dog called" << std::endl;
 }
 
-Dog::Dog(const Dog *other)
+Dog::Dog(const Dog &other) : brain(new Brain(*other.brain))
 {
 	*this = other;
 }
 
-Dog &Dog::operator=(const Dog *other)
+Dog &Dog::operator=(const Dog &other)
 {
-	if (this != other)
-		this->type = other->type;
+	if (this != &other)
+	{
+		this->_type = other._type;
+		delete this->brain;
+		this->brain = new Brain(*other.brain);
+	}
 	return *this;
 }
 
@@ -41,3 +45,6 @@ void Dog::makeSound() const
 {
 	std::cout << "Dog sound" << std::endl;
 }
+
+Brain* Dog::getBrain() const 
+{return this->brain;}

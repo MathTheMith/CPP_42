@@ -3,35 +3,51 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 14:36:56 by marvin            #+#    #+#             */
-/*   Updated: 2025/10/22 14:36:56 by marvin           ###   ########.fr       */
+/*   Created: 2025/12/13 12:30:08 by mvachon           #+#    #+#             */
+/*   Updated: 2025/12/13 12:30:08 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "../includes/Animal.hpp"
 #include "../includes/Dog.hpp"
 #include "../includes/Cat.hpp"
 
 int main()
 {
-	int nb = 2;
-	Animal* array[nb];
-	int i = 0;
-	while (i < nb)
-	{
-		if (i < nb / 2)
-			array[i] = new Dog();
-		else
-			array[i] = new Cat();
-		i++; 
-	}
-	i = 0;
-	while (i < nb)
-	{
-		delete array[i];
-		i++;
-	}
-	return 0;
+    const int size = 3;
+    Animal* animals[size];
+
+    std::cout << "----- Creating animals -----" << std::endl;
+
+    for (int i = 0; i < size; i++)
+    {
+        if (i < size / 2)
+            animals[i] = new Dog();
+        else
+            animals[i] = new Cat();
+    }
+
+    std::cout << "\n----- Deleting animals -----" << std::endl;
+
+    for (int i = 0; i < size; i++)
+        delete animals[i];
+
+    Dog dog1;
+    dog1.getBrain()->setIdea(0, "I want a bone");
+
+    Dog dog2(dog1);
+
+    std::cout << "Dog1 idea: " << dog1.getBrain()->getIdea(0) << std::endl;
+    std::cout << "Dog2 idea: " << dog2.getBrain()->getIdea(0) << std::endl;
+
+    dog2.getBrain()->setIdea(0, "I want to sleep");
+
+    std::cout << "After modification:" << std::endl;
+    std::cout << "Dog1 idea: " << dog1.getBrain()->getIdea(0) << std::endl;
+    std::cout << "Dog2 idea: " << dog2.getBrain()->getIdea(0) << std::endl;
+
+    return 0;
 }

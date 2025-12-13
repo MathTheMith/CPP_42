@@ -17,19 +17,32 @@ Brain::Brain()
 	std::cout << "Constructor Brain called" << std::endl;
 }
 
-Brain::Brain(const Brain *other)
+Brain::Brain(const Brain &other)
 {
 	*this = other;
 }
 
-Brain &Brain::operator=(const Brain *other)
+Brain &Brain::operator=(const Brain &other)
 {
-	if (this != other)
-		this->ideas[100] = other->ideas[100];
+	if (this != &other)
+		this->ideas[100] = other.ideas[100];
 	return *this;
 }
 
 Brain::~Brain()
 {
 	std::cout << "Constructor Brain deleted" << std::endl;
+}
+
+void Brain::setIdea(int i, const std::string& idea)
+{
+    if (i >= 0 && i < 100)
+        ideas[i] = idea;
+}
+
+std::string Brain::getIdea(int i) const
+{
+    if (i >= 0 && i < 100)
+        return ideas[i];
+    return "";
 }
