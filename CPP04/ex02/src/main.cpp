@@ -16,6 +16,7 @@
 
 int main()
 {
+
 	Animal* array[6];
 	int i = 0;
 	while (i < 6)

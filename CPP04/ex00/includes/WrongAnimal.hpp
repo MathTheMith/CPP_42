@@ -19,14 +19,15 @@
 class WrongAnimal {
 
 protected:
-    std::string type;
+    std::string _type;
 
 public:
     WrongAnimal();
     ~WrongAnimal();
-    WrongAnimal(const WrongAnimal *other);
-    WrongAnimal &operator=(const WrongAnimal *other);
-    void makeSound() const;   
+    WrongAnimal(const WrongAnimal &other);
+    WrongAnimal &operator=(const WrongAnimal &other);
+    
+    void makeSound() const; 
 	std::string getType() const;
 };
 

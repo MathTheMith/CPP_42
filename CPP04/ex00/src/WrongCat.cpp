@@ -6,7 +6,7 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 09:19:59 by mvachon           #+#    #+#             */
-/*   Updated: 2025/12/12 14:12:30 by mvachon          ###   ########.fr       */
+/*   Updated: 2025/12/12 14:33:48 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 WrongCat::WrongCat() 
 {
-	type = "WrongCat";
+	_type = "WrongCat";
 	std::cout << "Constructor WrongCat called" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat *other)
+WrongCat::WrongCat(const WrongCat &other)
 {
 	*this = other;
 }
 
-WrongCat &WrongCat::operator=(const WrongCat *other)
+WrongCat &WrongCat::operator=(const WrongCat &other)
 {
-	if (this != other)
-		this->type = other->type;
+	if (this != &other)
+		this->_type = other._type;
 	return *this;
 }
 

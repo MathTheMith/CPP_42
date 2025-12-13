@@ -15,14 +15,14 @@
 
 Dog::Dog() : brain(new Brain()) 
 {
-	type = "Dog";
+	_type = "Dog";
 	std::cout << "Constructor Dog called" << std::endl;
 }
 
-Dog &Dog::operator=(const Dog *other)
+Dog &Dog::operator=(const Dog &other)
 {
-	if (this != other)
-		this->type = other->type;
+	if (this != &other)
+		this->_type = other._type;
 	return *this;
 }
 

@@ -15,14 +15,14 @@
 
 Cat::Cat() : brain(new Brain())
 {
-	type = "Cat";
+	_type = "Cat";
 	std::cout << "Constructor Cat called" << std::endl;
 }
 
-Cat &Cat::operator=(const Cat *other)
+Cat &Cat::operator=(const Cat &other)
 {
-	if (this != other)
-		this->type = other->type;
+	if (this != &other)
+		this->_type = other._type;
 	return *this;
 }
 

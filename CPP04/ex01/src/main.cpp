@@ -17,10 +17,10 @@
 
 int main()
 {
-    const int size = 3;
+    const int size = 4;
     Animal* animals[size];
 
-    std::cout << "----- Creating animals -----" << std::endl;
+    std::cout << "----- Creating animals -----\n" << std::endl;
 
     for (int i = 0; i < size; i++)
     {
@@ -30,11 +30,13 @@ int main()
             animals[i] = new Cat();
     }
 
-    std::cout << "\n----- Deleting animals -----" << std::endl;
+    std::cout << "\n----- Deleting animals -----\n" << std::endl;
 
     for (int i = 0; i < size; i++)
         delete animals[i];
 
+
+    std::cout << "\n----- Testing deepcopy -----\n" << std::endl;
     Dog dog1;
     dog1.getBrain()->setIdea(0, "I want a bone");
 

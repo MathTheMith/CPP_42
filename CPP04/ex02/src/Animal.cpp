@@ -17,10 +17,10 @@ Animal::Animal()
 	std::cout << "Constructor Animal called" << std::endl;
 }
 
-Animal &Animal::operator=(const Animal *other)
+Animal &Animal::operator=(const Animal &other)
 {
-	if (this != other)
-		this->type = other->type;
+	if (this != &other)
+		this->_type = other._type;
 	return *this;
 }
 
@@ -34,4 +34,4 @@ void Animal::makeSound() const
 	std::cout << "Animal sound" << std::endl;
 }
 
-std::string Animal::getType() const {return type;}
+std::string Animal::getType() const {return _type;}

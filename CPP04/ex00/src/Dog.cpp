@@ -15,19 +15,19 @@
 
 Dog::Dog()
 {
-	type = "Dog";
+	_type = "Dog";
 	std::cout << "Constructor Dog called" << std::endl;
 }
 
-Dog::Dog(const Dog *other)
+Dog::Dog(const Dog &other)
 {
 	*this = other;
 }
 
-Dog &Dog::operator=(const Dog *other)
+Dog &Dog::operator=(const Dog &other)
 {
-	if (this != other)
-		this->type = other->type;
+	if (this != &other)
+		this->_type = other._type;
 	return *this;
 }
 

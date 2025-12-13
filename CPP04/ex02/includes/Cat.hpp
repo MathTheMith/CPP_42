@@ -22,7 +22,7 @@ class Cat : public Animal{
 		Brain *brain;
 	public:
 		Cat();
-		Cat &operator=(const Cat *other);
+		Cat &operator=(const Cat &other);
 		~Cat();
 		void makeSound() const;
 };
