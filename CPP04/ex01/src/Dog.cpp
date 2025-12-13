@@ -19,9 +19,8 @@ Dog::Dog() : brain(new Brain())
 	std::cout << "Constructor Dog called" << std::endl;
 }
 
-Dog::Dog(const Dog &other) : brain(new Brain(*other.brain))
+Dog::Dog(const Dog &other) : Animal(other), brain(new Brain(*other.brain))
 {
-	*this = other;
 }
 
 Dog &Dog::operator=(const Dog &other)

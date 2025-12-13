@@ -19,10 +19,16 @@ Cat::Cat() : brain(new Brain())
 	std::cout << "Constructor Cat called" << std::endl;
 }
 
+Cat::Cat(const Cat &other) : Animal(other), brain(new Brain(*other.brain)) {}
+
 Cat &Cat::operator=(const Cat &other)
 {
 	if (this != &other)
+	{
 		this->_type = other._type;
+		delete this->brain;
+		this->brain = new Brain(*other.brain);
+	}
 	return *this;
 }
 

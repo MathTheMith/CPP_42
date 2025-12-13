@@ -19,9 +19,7 @@ Cat::Cat() : brain(new Brain())
 	std::cout << "Constructor Cat called" << std::endl;
 }
 
-Cat::Cat(const Cat &other) : Animal(other), brain(new Brain(*other.brain))
-{
-}
+Cat::Cat(const Cat &other) : Animal(other), brain(new Brain(*other.brain)){}
 
 Cat &Cat::operator=(const Cat &other)
 {
