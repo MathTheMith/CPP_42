@@ -6,13 +6,16 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 14:41:20 by mvachon           #+#    #+#             */
-/*   Updated: 2026/01/14 14:41:38 by mvachon          ###   ########.fr       */
+/*   Updated: 2026/01/14 17:28:40 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
+#include "Array.tpp"
+#include <iostream>
 
 int main(void)
 {
-
+    Array<int> a;
+    
 }
