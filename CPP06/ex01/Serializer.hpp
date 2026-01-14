@@ -6,7 +6,7 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 14:01:43 by mvachon           #+#    #+#             */
-/*   Updated: 2026/01/13 15:33:48 by mvachon          ###   ########.fr       */
+/*   Updated: 2026/01/14 10:44:10 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 
 struct Data
 {
-    std::string *str;
+    std::string str;
+    int nb;
+    uintptr_t _void;
 };
 
 class Serializer

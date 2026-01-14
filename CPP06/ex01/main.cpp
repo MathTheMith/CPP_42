@@ -1,43 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.cpp                                     :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/13 14:09:47 by mvachon           #+#    #+#             */
-/*   Updated: 2026/01/14 10:35:17 by mvachon          ###   ########.fr       */
+/*   Created: 2026/01/14 10:15:46 by mvachon           #+#    #+#             */
+/*   Updated: 2026/01/14 10:44:38 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
+#include <iostream>
 
-Serializer::Serializer()
+int main()
 {
-    
-}
+    Data test;
+    test.str = "42";
+    test.nb = 42;
+    test._void = 42;
 
-Serializer::Serializer(const Serializer& other)
-{
-    *this = other;
-}
-Serializer& Serializer::operator=(const Serializer& other)
-{
-    (void)other;
-    return *this;
-}
+    uintptr_t raw = Serializer::serialize(&test);
+    Data* result = Serializer::deserialize(raw);
 
-Data* Serializer::deserialize(uintptr_t raw)
-{
-    return reinterpret_cast<Data*>(raw);
-}
-
-uintptr_t Serializer::serialize(Data* ptr)
-{
-    return reinterpret_cast<uintptr_t>(ptr);
-}
-
-Serializer::~Serializer()
-{
-
+    std::cout << result->str << std::endl;
+    std::cout << result->nb << std::endl;
+    std::cout << result->_void << std::endl;
 }
