@@ -6,21 +6,16 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 11:47:43 by mvachon           #+#    #+#             */
-/*   Updated: 2026/01/11 08:53:20 by mvachon          ###   ########.fr       */
+/*   Updated: 2026/01/16 13:50:34 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat()
     : _name("Jhon"), _grade(20)
 {
-    if (_grade < 1)
-        throw GradeTooHighException();
-    if (_grade > 150)
-        throw GradeTooLowException();
-    
     // std::cout << "Constructor Bureaucrat created" << std::endl;
 }
 
@@ -82,7 +77,7 @@ void Bureaucrat::decrementGrade()
     _grade++;
 }
 
-void Bureaucrat::signForm(Form& form)
+void Bureaucrat::signForm(AForm& form)
 {
     try
     {
@@ -93,6 +88,21 @@ void Bureaucrat::signForm(Form& form)
     {
         std::cout << _name << " couldn’t sign "
                   << form.getName() << " because " << e.what() << std::endl;
+    }
+}
+
+void Bureaucrat::executeForm(AForm const & form) const
+{
+    try
+    {
+        form.execute(*this);
+        std::cout << _name << " executed " << form.getName() << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << _name << " couldn’t execute "
+                  << form.getName() << " because "
+                  << e.what() << std::endl;
     }
 }
 

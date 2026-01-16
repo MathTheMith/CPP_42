@@ -1,27 +1,17 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/12/03 12:48:15 by mvachon           #+#    #+#              #
-#    Updated: 2025/12/03 12:48:15 by mvachon          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = Bureaucrat
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
+SRCDIR = src
+OBJDIR = obj
+
 SRCS = main.cpp Bureaucrat.cpp Form.cpp
+OBJS = $(SRCS:%.cpp=$(OBJDIR)/%.o)
 
 HEADERS = Bureaucrat.hpp Form.hpp
 
-OBJDIR = obj
-OBJS = $(SRCS:src/%.cpp=$(OBJDIR)/%.o)
-
 GREEN = \033[0;32m
+GREY = \033[0;90m
 RED = \033[0;31m
 RESET = \033[0m
 
@@ -31,12 +21,13 @@ $(OBJDIR):
 	@mkdir -p $(OBJDIR)
 
 $(NAME): $(OBJDIR) $(OBJS)
+	@echo "$(GREY)Linking $(NAME)...$(RESET)"
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)✓ $(NAME) compiled successfully!$(RESET)"
 
-$(OBJDIR)/%.o: src/%.cpp $(HEADERS)
+$(OBJDIR)/%.o: %.cpp $(HEADERS)
+	@echo "$(GREY)Compiling $<...$(RESET)"
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
-	@echo "$(GREEN)✓ Compiled: $<$(RESET)"
 
 clean:
 	@rm -rf $(OBJDIR)

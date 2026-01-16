@@ -6,7 +6,7 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 11:47:46 by mvachon           #+#    #+#             */
-/*   Updated: 2026/01/10 07:55:56 by mvachon          ###   ########.fr       */
+/*   Updated: 2026/01/16 12:06:49 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Bureaucrat{
     int getGrade() const;
     std::string getName() const;
     void setGrade(int grade);
+    
 };
 
 class GradeTooLowException : public std::exception {

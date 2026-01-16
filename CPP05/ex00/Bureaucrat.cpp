@@ -6,7 +6,7 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 11:47:43 by mvachon           #+#    #+#             */
-/*   Updated: 2026/01/10 07:55:19 by mvachon          ###   ########.fr       */
+/*   Updated: 2026/01/16 12:07:34 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 Bureaucrat::Bureaucrat()
     : _name("Jhon"), _grade(20)
 {
-    if (_grade < 1)
-        throw GradeTooHighException();
-    if (_grade > 150)
-        throw GradeTooLowException();
-    
     // std::cout << "Constructor Bureaucrat created" << std::endl;
 }
 
