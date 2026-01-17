@@ -6,7 +6,7 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 14:31:59 by mvachon           #+#    #+#             */
-/*   Updated: 2026/01/17 09:33:45 by mvachon          ###   ########.fr       */
+/*   Updated: 2026/01/17 09:47:59 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,8 @@ void ScalarConverter::Converter(const std::string& literal)
     {
         std::cout << "float: " << static_cast<float>(d) << 
             (std::floor(static_cast<float>(d)) != static_cast<float>(d) ? "f" : ".0f") << std::endl;
-        std::cout << "double: " << d << std::endl;
+        std::cout << "double: " << d <<
+            (std::floor(static_cast<float>(d)) != static_cast<float>(d) ? "" : ".0") << std::endl;
     }
 }
 

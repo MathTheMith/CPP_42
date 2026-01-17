@@ -16,7 +16,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = main.cpp ScalarConverter.cpp
 
-HEADERS = Bureaucrat.hpp ScalarConverter.hpp
+HEADERS = ScalarConverter.hpp
 
 OBJDIR = obj
 OBJS = $(SRCS:src/%.cpp=$(OBJDIR)/%.o)
