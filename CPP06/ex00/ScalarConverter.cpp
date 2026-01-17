@@ -6,7 +6,7 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 14:31:59 by mvachon           #+#    #+#             */
-/*   Updated: 2026/01/13 13:57:55 by mvachon          ###   ########.fr       */
+/*   Updated: 2026/01/17 09:33:45 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@
 #include <cmath> 
 
 ScalarConverter::ScalarConverter()
-{}
+{
+    // std::cout << "ScalarConverter created" << std::endl;
+}
 
 ScalarConverter::ScalarConverter(const ScalarConverter& other)
 {
@@ -97,8 +99,13 @@ void ScalarConverter::Converter(const std::string& literal)
     }
     else
     {
-        // std::cout << std::fixed << std::setprecision(cleanLiteral.length());
-        std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
+        std::cout << "float: " << static_cast<float>(d) << 
+            (std::floor(static_cast<float>(d)) != static_cast<float>(d) ? "f" : ".0f") << std::endl;
         std::cout << "double: " << d << std::endl;
     }
+}
+
+ScalarConverter::~ScalarConverter()
+{
+    std::cout << "ScalarConverter deleted" << std::endl;
 }
