@@ -10,16 +10,16 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bureaucrat
+NAME = whatever
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = main.cpp
 
-HEADERS = Whatever.hpp
+HEADERS = whatever.hpp
 
 OBJDIR = obj
-OBJS = $(SRCS:src/%.cpp=$(OBJDIR)/%.o)
+OBJS = $(SRCS:%.cpp=$(OBJDIR)/%.o)
 
 GREEN = \033[0;32m
 RED = \033[0;31m
@@ -34,9 +34,10 @@ $(NAME): $(OBJDIR) $(OBJS)
 	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)✓ $(NAME) compiled successfully!$(RESET)"
 
-$(OBJDIR)/%.o: src/%.cpp $(HEADERS)
+$(OBJDIR)/%.o: %.cpp $(HEADERS)
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 	@echo "$(GREEN)✓ Compiled: $<$(RESET)"
+
 
 clean:
 	@rm -rf $(OBJDIR)
