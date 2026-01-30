@@ -6,7 +6,7 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 18:46:08 by mvachon           #+#    #+#             */
-/*   Updated: 2026/01/30 19:53:51 by mvachon          ###   ########.fr       */
+/*   Updated: 2026/01/30 20:43:55 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,20 @@ int Span::longestSpan()
     return max - min;
 }
 
+Span::Span(const Span& other)
+{
+    *this = other;
+}
+
+Span& Span::operator=(const Span& other)
+{
+    if (this != &other)
+    {
+        this->_numbers = other._numbers;
+        this->_maxNb = other._maxNb;
+    }
+    return *this;
+}
 
 Span::~Span()
 {}
