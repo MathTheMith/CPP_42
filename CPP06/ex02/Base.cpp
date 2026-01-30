@@ -6,7 +6,7 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 11:54:39 by mvachon           #+#    #+#             */
-/*   Updated: 2026/01/17 11:41:24 by mvachon          ###   ########.fr       */
+/*   Updated: 2026/01/30 11:16:51 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,34 +45,21 @@ void Base::identify(Base &p)
     }
     catch(const std::exception& e)
     {
-        // std::cout << "Not A" << std::endl;
-    }
-    
-    try
-    {
-        B &b_ref = dynamic_cast<B&>(p);
-        (void)b_ref;
-        std::cout << "Reference found B" << std::endl;
-        return;
-    }
-    catch(const std::exception& e)
-    {
-        // std::cout << "Not B" << std::endl;
-    }
-    
-    try
-    {
-        C &c_ref = dynamic_cast<C&>(p);
-        (void)c_ref;
-        std::cout << "Reference found C" << std::endl;
-        return;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << "Unknown type" << std::endl;
+        try
+        {
+            B &b_ref = dynamic_cast<B&>(p);
+            (void)b_ref;
+            std::cout << "Reference found B" << std::endl;
+            return;
+        }
+        catch(const std::exception& e)
+        {
+            C &c_ref = dynamic_cast<C&>(p);
+            (void)c_ref;
+            std::cout << "Reference found C" << std::endl;
+        }
     }
 }
-
 Base* Base::generate()
 {
     int i = rand() % 3;
