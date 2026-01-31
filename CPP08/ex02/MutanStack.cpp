@@ -6,21 +6,21 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 20:46:01 by mvachon           #+#    #+#             */
-/*   Updated: 2026/01/30 20:47:47 by mvachon          ###   ########.fr       */
+/*   Updated: 2026/01/31 09:07:25 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutanStack.hpp"
 
-MutanStack::MutanStack()
+MutanStackClass::MutanStackClass()
 {
 }
 
-MutanStack::MutanStack(const MutanStack& other)
+MutanStackClass::MutanStackClass(const MutanStackClass& other)
 {
     *this = other;
 }
-MutanStack& MutanStack::operator=(const MutanStack& other)
+MutanStackClass& MutanStackClass::operator=(const MutanStackClass& other)
 {
     if (this != &other)
     {
@@ -29,6 +29,6 @@ MutanStack& MutanStack::operator=(const MutanStack& other)
     return *this;
 }
 
-MutanStack::MutanStack()
+MutanStackClass::~MutanStackClass()
 {
 }
