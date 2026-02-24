@@ -6,7 +6,7 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 14:31:59 by mvachon           #+#    #+#             */
-/*   Updated: 2026/01/17 09:47:59 by mvachon          ###   ########.fr       */
+/*   Updated: 2026/01/31 16:03:45 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ void ScalarConverter::Converter(const std::string& literal)
     ss >> d;
     if (ss.fail() || !ss.eof())
         valid = false;
-
     if (!valid || std::isnan(d) || std::isinf(d) || 
         d < std::numeric_limits<char>::min() || d > std::numeric_limits<char>::max())
         std::cout << "char: impossible" << std::endl;

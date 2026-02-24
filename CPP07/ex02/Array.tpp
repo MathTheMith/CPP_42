@@ -6,7 +6,7 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 14:42:05 by mvachon           #+#    #+#             */
-/*   Updated: 2026/01/17 10:05:31 by mvachon          ###   ########.fr       */
+/*   Updated: 2026/01/30 14:20:17 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 template <typename T>
 Array<T>::Array() : _array(NULL), _size(0)
-{
-}
+{}
 
 template <typename T>
 Array<T>::Array(unsigned int n) : _array(NULL), _size(n)

@@ -6,7 +6,7 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 11:47:39 by mvachon           #+#    #+#             */
-/*   Updated: 2026/01/16 13:48:30 by mvachon          ###   ########.fr       */
+/*   Updated: 2026/01/16 14:39:09 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int main()
     catch (std::exception& e)
     {
         std::cout << "Exception caught in main: "
-                  << e.what() << std::endl;
+                    << e.what() << std::endl;
     }
 
     return 0;

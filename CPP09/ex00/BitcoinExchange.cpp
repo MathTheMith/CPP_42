@@ -1,76 +1,34 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/21 08:30:24 by mvachon           #+#    #+#             */
-/*   Updated: 2026/02/22 09:11:00 by mvachon          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "BitcoinExchange.hpp"
 #include <cstdlib>
-#include <limits>
 #include <cerrno>
 #include <cmath>
 
-BitcoinExchange::BitcoinExchange()
-{
-}
+BitcoinExchange::BitcoinExchange() {}
 
 bool isNumber(float f)
 {
     return !std::isnan(f) && !std::isinf(f);
 }
 
-int toInt(const std::string &str)
-{
-    std::stringstream ss(str);
-    int result;
-    ss >> result;
-
-    return result;
-}
-
-std::vector<std::string> split(const std::string &str, char delimiter)
-{
-    std::vector<std::string> tokens;
-    std::stringstream ss(str);
-    std::string token;
-
-    while (std::getline(ss, token, delimiter))
-    {
-        tokens.push_back(token);
-    }
-
-    return tokens;
-}
-
 std::string DecrementDate(int &year, int &month, int &day)
 {
     int daysInMonth[] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
 
-    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+    if ((month == 02 && day == 29) && ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)))
         daysInMonth[2] = 29;
 
     day--;
-
     if (day < 1)
     {
         month--;
-
         if (month < 1)
         {
             month = 12;
             year--;
         }
-
         daysInMonth[2] = 28;
-        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+        if ((month == 02 && day == 29) && ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)))
             daysInMonth[2] = 29;
-
         day = daysInMonth[month];
     }
 
@@ -84,21 +42,23 @@ std::string DecrementDate(int &year, int &month, int &day)
     return ss.str();
 }
 
-int BitcoinExchange::ParseDate(std::vector<std::string> date, std::string line)
+int BitcoinExchange::ParseDate(const std::string &dateStr, const std::string &line)
 {
-    if (date.size() != 3)
+    size_t firstDash = dateStr.find('-');
+    size_t secondDash = dateStr.find('-', firstDash + 1);
+
+    if (firstDash == std::string::npos || secondDash == std::string::npos)
     {
         std::cout << "Error : bad input => " << line << std::endl;
         return -1;
     }
 
-    int day = toInt(date[2]);
-    int month = toInt(date[1]);
-    int year = toInt(date[0]);
+    int year  = std::atoi(dateStr.substr(0, firstDash).c_str());
+    int month = std::atoi(dateStr.substr(firstDash + 1, secondDash - firstDash - 1).c_str());
+    int day   = std::atoi(dateStr.substr(secondDash + 1).c_str());
 
     int daysInMonth[] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
-
-    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+    if ((month == 02 && day == 29) && ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)))
         daysInMonth[2] = 29;
 
     if (month < 1 || month > 12 || day < 1 || day > daysInMonth[month])
@@ -107,90 +67,81 @@ int BitcoinExchange::ParseDate(std::vector<std::string> date, std::string line)
         return -1;
     }
 
+    _date = dateStr;
     while (true)
     {
-        std::map<std::string, std::string>::iterator it = GetValue().find(_date);
-        
-        if (it != GetValue().end())
+        std::map<std::string, std::string>::iterator it = _values.find(_date);
+        if (it != _values.end())
         {
             _price = static_cast<float>(std::atof(it->second.c_str()));
             return 1;
         }
-
-        if ((year == 2009 && month == 1 && day < 2)|| year < 2009)
-        {
-            std::cout << "Error: no earlier date available." << std::endl;
+        if ((year == 2009 && month == 1 && day < 2) || year < 2009)
             return -1;
-        }
 
         _date = DecrementDate(year, month, day);
     }
 }
 
-int BitcoinExchange::ParseValue(const std::vector<std::string> &eachWord)
+int BitcoinExchange::ParseValue(const std::string &valueStr, const std::string &line)
 {
-    if (eachWord.size() < 3)
-    {
-        std::cout << "Error: not enough words\n";
-        return -1;
-    }
-
     errno = 0;
     char *end;
-    float value = std::strtof(eachWord[2].c_str(), &end);
+    float value = std::strtof(valueStr.c_str(), &end);
 
-    if (end == eachWord[2].c_str() || *end != '\0' || errno == ERANGE)
+    if (end == valueStr.c_str() || *end != '\0' || errno == ERANGE)
     {
-        std::cout << "Error: not a valid number => " << eachWord[2] << std::endl;
+        std::cout << "Error: not a valid number => " << valueStr << std::endl;
         return -1;
     }
-
     if (!isNumber(value))
     {
-        std::cout << "Error: value is NaN or infinite => " << eachWord[2] << std::endl;
+        std::cout << "Error: value is NaN or infinite => " << valueStr << std::endl;
         return -1;
     }
-
     if (value < 0)
     {
-        std::cout << "Error: not a positive number => " << eachWord[2] << std::endl;
+        std::cout << "Error: not a positive number => " << valueStr << std::endl;
         return -1;
     }
-
     if (value > 1000)
     {
-        std::cout << "Error: value must be lower than 1000 => " << eachWord[2] << std::endl;
+        std::cout << "Error: value must be lower than 1000 => " << valueStr << std::endl;
         return -1;
     }
+    (void)line;
     _value = value;
     return 0;
 }
 
-int BitcoinExchange::ParseLine(std::string line)
+int BitcoinExchange::ParseLine(const std::string &line)
 {
     if (line == "date | value")
         return -1;
 
-    std::vector<std::string> eachWord = split(line, ' ');
-    _date = eachWord[0];
-    if (eachWord.size() != 3)
+    size_t pipePos = line.find(" | ");
+    if (pipePos == std::string::npos)
     {
         std::cout << "Error : bad input => " << line << std::endl;
         return -1;
     }
-    std::vector<std::string> date = split(eachWord[0], '-');
-    if (ParseDate(date, line) == -1)
-        return -1;
 
-    if (eachWord[1] != "|")
+    std::string dateStr  = line.substr(0, pipePos);
+    std::string valueStr = line.substr(pipePos + 3);
+
+    if (dateStr.empty() || valueStr.empty())
     {
-        std::cout << "Error : bad '|' input => " << eachWord[1] << std::endl;
+        std::cout << "Error : bad input => " << line << std::endl;
         return -1;
     }
-    return ParseValue(eachWord);
+
+    if (ParseDate(dateStr, line) == -1)
+        return -1;
+
+    return ParseValue(valueStr, line);
 }
 
-void BitcoinExchange::IsFileValid(std::string doc)
+void BitcoinExchange::IsFileValid(const std::string &doc)
 {
     std::ifstream file(doc.c_str());
 
@@ -206,32 +157,22 @@ void BitcoinExchange::IsFileValid(std::string doc)
         if (line.empty())
             continue;
         if (ParseLine(line) == 0)
-            std::cout << _date << " => " << _value << " = "  << _price * _value << std::endl;
+            std::cout << _date << " => " << _value << " = " << _price * _value << std::endl;
     }
     file.close();
 }
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &other)
-{
-    *this = other;
-}
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) { *this = other; }
+
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
 {
     if (this != &other)
-        this->_value = other._value;
+        _value = other._value;
     return *this;
 }
 
-std::map<std::string, std::string> &BitcoinExchange::GetValue()
-{
-    return _values;
-}
+std::map<std::string, std::string> &BitcoinExchange::GetValue() { return _values; }
 
-void BitcoinExchange::SetValue(const std::map<std::string, std::string> &values)
-{
-    _values = values;
-}
+void BitcoinExchange::SetValue(const std::map<std::string, std::string> &values) { _values = values; }
 
-BitcoinExchange::~BitcoinExchange()
-{
-}
+BitcoinExchange::~BitcoinExchange() {}

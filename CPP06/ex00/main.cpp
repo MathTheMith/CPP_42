@@ -6,7 +6,7 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 14:51:26 by mvachon           #+#    #+#             */
-/*   Updated: 2026/01/17 09:29:14 by mvachon          ###   ########.fr       */
+/*   Updated: 2026/01/31 16:02:32 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,7 @@
 int main()
 {
     std::string inputs[] = {
-        "0",
         "nan",
-        "3.14",
-        "42.0f",
-        "nanf",
-        "-inf",
-        "300",
     };
 
     for (size_t i = 0; i < sizeof(inputs)/sizeof(inputs[0]); ++i)

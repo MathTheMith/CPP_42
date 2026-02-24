@@ -6,12 +6,11 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 08:29:56 by mvachon           #+#    #+#             */
-/*   Updated: 2026/02/21 12:03:49 by mvachon          ###   ########.fr       */
+/*   Updated: 2026/02/24 10:03:13 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <vector>
 #include <map>
 #include <fstream>
 #include <sstream>
@@ -28,10 +27,10 @@ class BitcoinExchange
         float _price;
 
     public:
-        void IsFileValid(std::string doc);
-        int ParseLine(std::string line);
-        int ParseValue(const std::vector<std::string> &eachWord);
-        int ParseDate(std::vector<std::string> eachWord, std::string line);
+        void IsFileValid(const std::string &doc);
+        int ParseLine(const std::string &line);
+        int ParseValue(const std::string &valueStr, const std::string &line);
+        int ParseDate(const std::string &dateStr, const std::string &line);
         void CheckNearestDate(std::map<std::string, std::string>::iterator it, std::string date);
         BitcoinExchange();
         BitcoinExchange(const BitcoinExchange &other);
@@ -42,6 +41,5 @@ class BitcoinExchange
         std::map<std::string, std::string> &GetValue();
 };
 
-std::vector<std::string> split(const std::string &str, char delimiter);
 
 #endif

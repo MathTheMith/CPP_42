@@ -24,7 +24,7 @@ private:
     void warning( void );
     void error( void );
     void (Harl::*actions[4])(void);
-    std::string complain_type[4];
+    std::string complain_type[4];   
 
 public:
     Harl();

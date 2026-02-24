@@ -10,13 +10,13 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = btc
+NAME = PmergeMe
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp  BitcoinExchange.cpp
+SRCS = main.cpp PmergeMe.cpp
 
-HEADERS = BitcoinExchange.hpp
+HEADERS = PmergeMe.hpp
 
 OBJDIR = obj
 OBJS = $(SRCS:%.cpp=$(OBJDIR)/%.o)
@@ -48,8 +48,5 @@ fclean: clean
 	@echo "$(RED)✗ $(NAME) removed$(RESET)"
 
 re: fclean all
-
-val:
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --track-fds=yes ./$(NAME) input.txt
 
 .PHONY: all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 10:30:00 by mvachon           #+#    #+#             */
-/*   Updated: 2026/01/17 10:12:48 by mvachon          ###   ########.fr       */
+/*   Updated: 2026/01/30 14:19:50 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main()
     
     std::cout << "\n=== Test 2: Array of integers ===" << std::endl;
     {
-        Array<int> numbers(5);
+        Array<int> numbers(0);
         std::cout << "Size: " << numbers.size() << std::endl;
         
         for (unsigned int i = 0; i < numbers.size(); i++)

@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/14 13:52:25 by mvachon           #+#    #+#             */
-/*   Updated: 2026/01/30 14:14:03 by mvachon          ###   ########.fr       */
+/*   Created: 2026/02/24 08:54:08 by mvachon           #+#    #+#             */
+/*   Updated: 2026/02/24 09:02:39 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iter.hpp"
+#ifndef PMERGEME_HPP
+#define PMERGEME_HPP
+
 #include <iostream>
+#include <list>
 
-void printChar(const char& c)
+class PmergeMe
 {
-    std::cout << c << " ";
-}
+    private:
 
-void incrementInt(int& n)
-{
-    n++;
-}
+    public:
+        PmergeMe();
+        PmergeMe(const PmergeMe& other);
+        PmergeMe& operator=(const PmergeMe& other);
+        ~PmergeMe();
+};
 
-void printInt(const int& n)
-{
-    std::cout << n << " ";
-}
-
-int main()
-{
-    const char str[] = "hello";
-    int numbers[] = {1, 2, 3, 4};
-
-    iter(str, 5, printChar);
-    std::cout << std::endl;
-
-    iter(numbers, 4, incrementInt);
-    iter(numbers, 4, printInt);
-}
+#endif

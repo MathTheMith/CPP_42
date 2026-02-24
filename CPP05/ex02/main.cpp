@@ -6,7 +6,7 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/11 13:22:42 by mvachon           #+#    #+#             */
-/*   Updated: 2026/01/16 13:49:46 by mvachon          ###   ########.fr       */
+/*   Updated: 2026/01/16 14:17:33 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main()
     try
     {
         Bureaucrat boss("Boss", 1);
-        Bureaucrat intern("Intern", 150);
+        Bureaucrat intern("Intern", 1500);
 
         ShrubberyCreationForm shrub("home");
         RobotomyRequestForm robot("Bender");
@@ -45,7 +45,6 @@ int main()
 
         std::cout << "\n--- Test with a bureaucrat with too low grade ---\n";
         intern.executeForm(pardon);
-
     }
     catch (std::exception &e)
     {

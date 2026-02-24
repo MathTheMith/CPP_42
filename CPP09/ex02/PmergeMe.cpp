@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/14 13:52:25 by mvachon           #+#    #+#             */
-/*   Updated: 2026/01/30 14:14:03 by mvachon          ###   ########.fr       */
+/*   Created: 2026/02/24 08:54:06 by mvachon           #+#    #+#             */
+/*   Updated: 2026/02/24 09:15:39 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iter.hpp"
-#include <iostream>
+#include "PmergeMe.hpp"
 
-void printChar(const char& c)
+PmergeMe::PmergeMe()
 {
-    std::cout << c << " ";
+    // std::cout << "Constructor called" << std::endl;
 }
-
-void incrementInt(int& n)
+PmergeMe::PmergeMe(const PmergeMe& other)
 {
-    n++;
+    *this = other;
 }
-
-void printInt(const int& n)
+PmergeMe& PmergeMe::operator=(const PmergeMe& other)
 {
-    std::cout << n << " ";
+    (void)other;
+    return *this;
 }
-
-int main()
+PmergeMe::~PmergeMe()
 {
-    const char str[] = "hello";
-    int numbers[] = {1, 2, 3, 4};
-
-    iter(str, 5, printChar);
-    std::cout << std::endl;
-
-    iter(numbers, 4, incrementInt);
-    iter(numbers, 4, printInt);
+    // std::cout << "Destructor called" << std::endl;
 }
