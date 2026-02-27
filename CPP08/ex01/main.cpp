@@ -6,13 +6,12 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 18:49:44 by mvachon           #+#    #+#             */
-/*   Updated: 2026/01/30 19:58:50 by mvachon          ###   ########.fr       */
+/*   Updated: 2026/02/27 10:29:53 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include <cstdlib>
-#include <ctime>
 #include <iostream>
 
 int main(void)
@@ -21,19 +20,22 @@ int main(void)
     
     try
     {
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < 2; i+=1)
             TSpan.addNumber(i);
+        int LongTS = TSpan.longestSpan();
+        int ShortTS = TSpan.shortestSpan();
+        std::cout << "TSpan-> Longest: " << LongTS << "  Shortest: " << ShortTS << std::endl;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
+    
 
     // int nb = 100000;
     // Span BigSpan(nb);
     // try
     // {
-    //     srand (time(NULL));
     //     for (int i = 1; i < nb; i++)
     //         BigSpan.addNumber(rand() % nb);
     // }
@@ -44,8 +46,4 @@ int main(void)
     // int LongBS = BigSpan.longestSpan();
     // int ShortBS = BigSpan.shortestSpan();
     // std::cout << "BigSpan-> Longest: " << LongBS << "  Shortest: " << ShortBS << std::endl;
-    
-    int LongTS = TSpan.longestSpan();
-    int ShortTS = TSpan.shortestSpan();
-    std::cout << "TSpan-> Longest: " << LongTS << "  Shortest: " << ShortTS << std::endl;
 }

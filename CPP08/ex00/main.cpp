@@ -6,7 +6,7 @@
 /*   By: mvachon <mvachon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 18:26:51 by mvachon           #+#    #+#             */
-/*   Updated: 2026/01/30 18:41:26 by mvachon          ###   ########.fr       */
+/*   Updated: 2026/02/27 10:25:08 by mvachon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int main()
         v.push_back(1);
         v.push_back(3);
         v.push_back(5);
-
         std::vector<int>::iterator it = easyfind(v, 3);
         std::cout << "Found: " << *it << std::endl;
 
